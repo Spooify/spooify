@@ -1,0 +1,27 @@
+### get a token
+POST https://accounts.spotify.com/api/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&client_id=00fdc5f435544c7c867ea69f47081ebe&client_secret=62c518d88e1b418c9741bea147080e2e
+    
+### get an artist
+GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg
+Authorization: Bearer BQDkXAtyvrROpkT5zyp265t6S5FwwaTAwi_xmb18czb9c4Nv3OVIOB6GvjT552iuKSqYHbbMgMziIASTCx-iv8ZuYa5r0gf6h0KG_ia-58gQAngPNsiV
+
+### get artist top tracks
+GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/top-tracks?market=us
+Authorization: Bearer BQDkXAtyvrROpkT5zyp265t6S5FwwaTAwi_xmb18czb9c4Nv3OVIOB6GvjT552iuKSqYHbbMgMziIASTCx-iv8ZuYa5r0gf6h0KG_ia-58gQAngPNsiV
+
+###get artist albums
+GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=album%2Csingle&market=us
+Authorization: Bearer BQDkXAtyvrROpkT5zyp265t6S5FwwaTAwi_xmb18czb9c4Nv3OVIOB6GvjT552iuKSqYHbbMgMziIASTCx-iv8ZuYa5r0gf6h0KG_ia-58gQAngPNsiV
+
+
+###get related artist 
+GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/related-artist
+Authorization: Bearer BQDkXAtyvrROpkT5zyp265t6S5FwwaTAwi_xmb18czb9c4Nv3OVIOB6GvjT552iuKSqYHbbMgMziIASTCx-iv8ZuYa5r0gf6h0KG_ia-58gQAngPNsiV
+
+###get featured on 
+GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=appears_on&market=us
+Authorization: Bearer BQDkXAtyvrROpkT5zyp265t6S5FwwaTAwi_xmb18czb9c4Nv3OVIOB6GvjT552iuKSqYHbbMgMziIASTCx-iv8ZuYa5r0gf6h0KG_ia-58gQAngPNsiV
+
