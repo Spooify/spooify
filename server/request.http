@@ -2,26 +2,26 @@
 POST https://accounts.spotify.com/api/token
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=client_credentials&client_id=00fdc5f435544c7c867ea69f47081ebe&client_secret=62c518d88e1b418c9741bea147080e2e
+grant_type=client_credentials&client_id=6428b163585e4c2295c4232278eac6f7&client_secret=5289a351467b45d2b65130ad2e640f61
     
 ### get an artist
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg
-Authorization: Bearer BQDkXAtyvrROpkT5zyp265t6S5FwwaTAwi_xmb18czb9c4Nv3OVIOB6GvjT552iuKSqYHbbMgMziIASTCx-iv8ZuYa5r0gf6h0KG_ia-58gQAngPNsiV
+Authorization: Bearer BQBFwcPdj1SCmj1oAwI9F51Cy2YwLTMd25MQ6ekjuPr1r2TITC8-51MkclZJKlnJigX5Utb4xjouc6seE4uIXsyDtOPdOYQVq4ZvpAkgmZ-9Rn6WncAv
 
 ### get artist top tracks
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/top-tracks?market=us
-Authorization: Bearer BQDkXAtyvrROpkT5zyp265t6S5FwwaTAwi_xmb18czb9c4Nv3OVIOB6GvjT552iuKSqYHbbMgMziIASTCx-iv8ZuYa5r0gf6h0KG_ia-58gQAngPNsiV
+Authorization: Bearer BQBFwcPdj1SCmj1oAwI9F51Cy2YwLTMd25MQ6ekjuPr1r2TITC8-51MkclZJKlnJigX5Utb4xjouc6seE4uIXsyDtOPdOYQVq4ZvpAkgmZ-9Rn6WncAv
 
 ###get artist albums
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=album%2Csingle&market=us
-Authorization: Bearer BQDkXAtyvrROpkT5zyp265t6S5FwwaTAwi_xmb18czb9c4Nv3OVIOB6GvjT552iuKSqYHbbMgMziIASTCx-iv8ZuYa5r0gf6h0KG_ia-58gQAngPNsiV
+Authorization: Bearer BQBFwcPdj1SCmj1oAwI9F51Cy2YwLTMd25MQ6ekjuPr1r2TITC8-51MkclZJKlnJigX5Utb4xjouc6seE4uIXsyDtOPdOYQVq4ZvpAkgmZ-9Rn6WncAv
 
 
 ###get related artist 
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/related-artist
-Authorization: Bearer BQDkXAtyvrROpkT5zyp265t6S5FwwaTAwi_xmb18czb9c4Nv3OVIOB6GvjT552iuKSqYHbbMgMziIASTCx-iv8ZuYa5r0gf6h0KG_ia-58gQAngPNsiV
+Authorization: Bearer BQBFwcPdj1SCmj1oAwI9F51Cy2YwLTMd25MQ6ekjuPr1r2TITC8-51MkclZJKlnJigX5Utb4xjouc6seE4uIXsyDtOPdOYQVq4ZvpAkgmZ-9Rn6WncAv
 
 ###get featured on 
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=appears_on&market=us
-Authorization: Bearer BQDkXAtyvrROpkT5zyp265t6S5FwwaTAwi_xmb18czb9c4Nv3OVIOB6GvjT552iuKSqYHbbMgMziIASTCx-iv8ZuYa5r0gf6h0KG_ia-58gQAngPNsiV
+Authorization: Bearer BQBFwcPdj1SCmj1oAwI9F51Cy2YwLTMd25MQ6ekjuPr1r2TITC8-51MkclZJKlnJigX5Utb4xjouc6seE4uIXsyDtOPdOYQVq4ZvpAkgmZ-9Rn6WncAv
 

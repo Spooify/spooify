@@ -1,0 +1,1 @@
+INSERT INTO Tracks (id, name, duration, plays, album, artist) VALUES ("3cHyrEgdyYRjgJKSOiOtcS", "Timber (feat. Ke$ha)", 204160, 83, "Global Warming: Meltdown (Deluxe Version)", 'Pit Bull');
