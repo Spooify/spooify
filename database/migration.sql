@@ -4,7 +4,6 @@ CREATE TABLE Tracks(
     id PRIMARY KEY,
     name text,
     duration int,
-    plays int,
     album text FOREIGN KEY REFERENCES Albums(album_name),
     artist text FOREIGN KEY REFERENCES Artists(artist_name)
 )

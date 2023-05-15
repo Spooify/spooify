@@ -1,4 +1,4 @@
-INSERT INTO Tracks (id, name, duration, plays, album, artist) VALUES ('3cHyrEgdyYRjgJKSOiOtcS', 'Timber (feat. Ke$ha)', 204160, 'Global Warming: Meltdown (Deluxe Version)', 'Pit Bull');
+INSERT INTO Tracks (id, name, duration, album, artist) VALUES ('3cHyrEgdyYRjgJKSOiOtcS', 'Timber (feat. Ke$ha)', 204160, 'Global Warming: Meltdown (Deluxe Version)', 'Pit Bull');
 
 INSERT INTO Albums (id, album_name, year_made, song_amount, total_duration, artist, photo) VALUES ('7I4Vx91kradxSJNwg1ycbq', 'Global Warming: Meltdown (Deluxe Version)', 2012, 16, 204160, 'Pit Bull', 'https://i.scdn.co/image/ab67616d0000b273f575130838bc98c4f2b17312');
 
