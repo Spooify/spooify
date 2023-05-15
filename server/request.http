@@ -16,9 +16,14 @@ Authorization: Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=album%2Csingle&market=us
 Authorization: Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptbP3AgEXnyTQbS5OPZjYTUUQ8Rsfxp6zA5syKsUEhO_0n
 
-###get related artist 
+### get related artist 
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/related-artist
-Authorization: Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptbP3AgEXnyTQbS5OPZjYTUUQ8Rsfxp6zA5syKsUEhO_0n
+Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptbP3AgEXnyTQbS5OPZjYTUUQ8Rsfxp6zA5syKsUEhO_0n
+
 ###get featured on 
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=appears_on&market=us
 Authorization: Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptbP3AgEXnyTQbS5OPZjYTUUQ8Rsfxp6zA5syKsUEhO_0n
+
+### test route for server
+GET http://localhost:8080/
+
