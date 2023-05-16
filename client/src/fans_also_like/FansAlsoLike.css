@@ -1,5 +1,6 @@
 .fans_also_like {
   width: fit-content;
+
 }
 
 .fans_also_like_header:hover {
@@ -22,6 +23,7 @@
     height: 150px;
     width: 150px;
     align-content: center;
+    border-radius: 50%;
 }
 
 .play_artist_button {
@@ -46,10 +48,18 @@
   margin: auto;
 }
 
+.artist_name{
+    font-size: 17px;
+}
+
+.artist_description{
+    font-size: 15px;
+}
+
 .new_artist_option {
   background-color: rgb(20, 19, 19);
-  width: 175px;
-  height: 250px;
+  width: 200px;
+  height: 300px;
 }
 
 .new_artist_option:hover {
