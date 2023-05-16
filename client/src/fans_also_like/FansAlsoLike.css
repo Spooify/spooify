@@ -1,0 +1,62 @@
+.fans_also_like {
+  width: fit-content;
+}
+
+.fans_also_like_header:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.show_all {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.show_all:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  width: fit-content;
+}
+
+.new_artist_photo {
+    height: 150px;
+    width: 150px;
+    align-content: center;
+}
+
+.play_artist_button {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: rgb(30, 215, 96);
+}
+
+.play_artist_button:hover {
+  height: 55px;
+  width: 55px;
+}
+
+.play_triangle {
+  background-color: rgb(30, 215, 96);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid rgb(20, 19, 19);
+  margin: auto;
+}
+
+.new_artist_option {
+  background-color: rgb(20, 19, 19);
+  width: 175px;
+  height: 250px;
+}
+
+.new_artist_option:hover {
+  cursor: pointer;
+  background-color: rgb(88, 87, 87);
+}
+
+.artist_name {
+  width: fit-content;
+}
