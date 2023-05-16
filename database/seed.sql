@@ -5,6 +5,31 @@ DELETE FROM Tracks;
 INSERT INTO Artists (id, artist_name, followers, image) 
 VALUES ('0TnOYISbd1XYRBk9myaseg', 'Pit Bull', 9986097, 'https://i.scdn.co/image/ab6761610000e5ebfc9d2abc85b6f4bef77f80ea');
 
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('0jnsk9HBra6NMjO2oANoPY', 'Flo Rida', 8849956, 'https://i.scdn.co/image/ab67616100005174655ca8f3196953554b479452');
+
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('6MF9fzBmfXghAz953czmBC', 'Taio Cruz', 2230655, 'https://i.scdn.co/image/ab67616100005174153171480a6f22912253b9f1');
+
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('085pc2PYOi8bGKj0PNjekA', 'will.i.am', 4019587, 'https://i.scdn.co/image/ab67616100005174c9ab8da6f7a3ce02f0b16fd8');
+
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('6S0dmVVn4udvppDhZIWxCr', 'Sean Kingston', 3029796, 'https://i.scdn.co/image/ab6761610000517488736ba90063ff3acb41d177');
+
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('698hF4vcwHwPy8ltmXermq', 'Far East Movement', 1147578, 'https://i.scdn.co/image/ab676161000051746f288ea7bd44c142791dc7cd');
+
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('07YZf4WDAMNwqr4jfgOZ8y', 'Jason Derulo', 11822509, 'https://i.scdn.co/image/ab676161000051742ca27dcc7f92e9576126bb18');
+
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('5ndkK3dpZLKtBklKjxNQwT', 'B.o.B', 2097559, 'https://i.scdn.co/image/ab676161000051743b6f1762e81e53df14990f57');
+
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('3Isy6kedDrgPYoTS1dazA9', 'Sean Paul', 4341073, 'https://i.scdn.co/image/ab6761610000517460c3e9abe7327c0097738f22');
+
+
 INSERT INTO Albums (id, album_name, year_made, song_amount, total_duration, photo, artist) 
 VALUES ('7I4Vx91kradxSJNwg1ycbq', 'Global Warming: (Deluxe Version)', 2012, 16, 3381969, 
 'https://i.scdn.co/image/ab67616d0000b273f575130838bc98c4f2b17312', '0TnOYISbd1XYRBk9myaseg');
