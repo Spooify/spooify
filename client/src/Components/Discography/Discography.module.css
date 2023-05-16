@@ -1,0 +1,10 @@
+.title {
+  text-align: left;
+  font-size: 19px;
+  color: white;
+}
+
+.disco-bar {
+  display: flex;
+  flex-direction: row;
+}

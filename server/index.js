@@ -4,9 +4,16 @@ import express from "express";
 const app = express();
 import cors from "cors";
 dotenv.config();
+// dotenv.config({ path: "server/.env" });
 app.use(express.json());
 app.use(cors());
 const PORT = 8080;
+
+import pg from "pg";
+const { Pool } = pg;
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
 //--- database connection ---
 // import pkg from "pg";
@@ -53,7 +60,7 @@ app.get("/api/albums/:id", (req, res) => {
 //--- get all albums of singular artist ---
 app.get("/api/artists/:id/albums", (req, res) => {
   pool
-    .query("SELECT * FROM albums WHERE artist_id=$1", [req.params.id])
+    .query("SELECT * FROM albums WHERE artist=$1", [req.params.id])
     .then((result) => {
       res.send(result.rows);
     });
