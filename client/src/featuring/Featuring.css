@@ -1,0 +1,56 @@
+.featuring{
+    width: fit-content;
+}
+
+.featuring_band:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.show_all{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.show_all:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  width: fit-content;
+}
+
+.play_artist_button {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: rgb(30, 215, 96);
+}
+
+.play_artist_button:hover {
+  height: 55px;
+  width: 55px;
+}
+
+.play_triangle {
+  background-color: rgb(30, 215, 96);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid rgb(20, 19, 19);
+  margin: auto;
+}
+
+.new_radio_option {
+  background-color: rgb(20, 19, 19);
+  width: 175px;
+  height: 250px;
+}
+
+.new_radio_option:hover {
+  cursor: pointer;
+  background-color: rgb(88, 87, 87);
+}
+
+.radio_name {
+    width: fit-content;
+}
