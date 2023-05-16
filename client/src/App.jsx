@@ -6,6 +6,8 @@ import './featuring/Featuring.jsx';
 import Featuring from './featuring/Featuring.jsx';
 import FansAlsoLike from './fans_also_like/FansAlsoLike';
 import Discography from "./Components/Discography/Discography";
+import Sidebar from './sidebar/Sidebar.jsx'
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,7 +15,7 @@ function App() {
 
   return (
     <>
-
+      <Sidebar />
      <Featuring/>
      <FansAlsoLike/>
      <Discography artist={artist}></Discography>
