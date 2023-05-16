@@ -1,4 +1,4 @@
-import "./Featuring.css";
+import "../fans_also_like/FansAlsoLike.css";
 
 const Featuring = (props) => {
   const newFeaturingPhoto = new URL(
@@ -7,10 +7,13 @@ const Featuring = (props) => {
   );
 
   return (
-    <div className="featuring">
-      <h1 className="featuring_band">Featuring August Burns Red</h1>
-      <div className="show_all">Show All</div>
-      <div className="new_radio_option">
+    <div className="container">
+    <div className="fans_also_like">
+      <div className="title">
+        <h1 className="fans_also_like_header">Featuring August Burns Red</h1>
+        <div className="show_all">Show All</div>
+      </div>
+      <div className="new_artist_option">
         <img
           className="new_artist_photo"
           src={newFeaturingPhoto}
@@ -19,11 +22,12 @@ const Featuring = (props) => {
         <button className="play_artist_button">
           <div className="play_triangle"></div>
         </button>
-        <h2 className="radio_name">This is August Burns Red</h2>
-        <p className="radio_description">
+        <h2 className="artist_name">This is August Burns Red</h2>
+        <p className="artist_description">
           This is August Burns Red. The essential tracks all in one playlist{" "}
         </p>
       </div>
+    </div>
     </div>
   );
 };

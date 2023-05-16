@@ -1,6 +1,19 @@
-.fans_also_like {
-  width: fit-content;
+.container{
+    display: flex;
+    height: 400px;
+    position: relative;
+    background-color: rgb(53, 52, 52);
+    padding-left: 15px;
+}
 
+.fans_also_like {
+  width: 100%;
+  background-color: rgb(53, 52, 52);
+}
+
+.fans_also_like_header{
+    color:white;
+    font-size: 20px;
 }
 
 .fans_also_like_header:hover {
@@ -9,8 +22,11 @@
 }
 
 .show_all {
-  display: flex;
-  justify-content: flex-end;
+    color: white;
+    margin-top: 15px;
+    position:absolute;
+    top: 0;
+    right: 10px;
 }
 
 .show_all:hover {
@@ -19,11 +35,19 @@
   width: fit-content;
 }
 
+.new_artist_option{
+    border-radius: 10px;
+    position:absolute;
+}
+
 .new_artist_photo {
     height: 150px;
     width: 150px;
+    margin-top: 20px;
+    margin-left: 20px;
     align-content: center;
     border-radius: 50%;
+    position: relative;
 }
 
 .play_artist_button {
@@ -31,7 +55,12 @@
   height: 50px;
   width: 50px;
   background-color: rgb(30, 215, 96);
+  position: absolute;
+  bottom: 10;
+  right: 30px;
+  top:115px
 }
+
 
 .play_artist_button:hover {
   height: 55px;
@@ -50,10 +79,16 @@
 
 .artist_name{
     font-size: 17px;
+    color: white;
+    position: absolute;
+    margin-bottom: 5px;
 }
 
 .artist_description{
     font-size: 15px;
+    color: white;
+    position: absolute;
+    bottom: 45px;
 }
 
 .new_artist_option {
