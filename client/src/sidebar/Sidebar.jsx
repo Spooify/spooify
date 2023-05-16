@@ -12,21 +12,17 @@ function Sidebar(){
     return(
         <div className="sidebar">
             <div className="sidebarItem">
-                {/* <div className="spooify">
-                    <img src={spooify_white} alt="" /> 
-                    Spooify
-                </div> */}
                 <div className="home">
                     <img src={homeimgURL} alt="home" className="homeimg"/>
                     Home
-                    {/* <img src="client/src/assets/react.svg" alt="" /> */}
                 </div>
                 <div className="search">
                     <img src={searchimgURL} alt="search" className="searchimg"/>
                     Search
                 </div>
-
             </div>
+
+            
             <div className="playlist">
                 <div className="userList">
                     <div className="libLine"></div>

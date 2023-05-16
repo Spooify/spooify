@@ -15,10 +15,14 @@ function App() {
 
   return (
     <>
+    <div className="main_body">
       <Sidebar />
-     <Featuring/>
-     <FansAlsoLike/>
-     <Discography artist={artist}></Discography>
+      <div>
+        <Featuring/>
+        <FansAlsoLike/>
+        <Discography artist={artist}></Discography>
+      </div>
+    </div>
 
     </>
   );
