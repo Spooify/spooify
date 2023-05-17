@@ -1,5 +1,6 @@
-.disco-container {
+.fans-container {
   padding-left: 15px;
+  padding-top: 15px;
 }
 
 .title {
@@ -8,7 +9,7 @@
   color: white;
 }
 
-.disco-bar {
+.fans-bar {
   display: flex;
   flex-direction: row;
 }

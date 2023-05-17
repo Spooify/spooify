@@ -4,6 +4,7 @@ import AlbumCard from "../AlbumCard/AlbumCard";
 
 const Discography = ({ artist }) => {
   const [albums, setAlbums] = useState("");
+  const maxAlbums = 9;
 
   useEffect(() => {
     const url = `http://localhost:8080/api/artists/${artist}/albums`;
@@ -21,18 +22,20 @@ const Discography = ({ artist }) => {
   }, []);
 
   return (
-    <>
+    <section className={styles["disco-container"]}>
       <h2 className={styles.title}>Discography</h2>
-      <section className={styles["disco-bar"]}>
+      <div className={styles["disco-bar"]}>
         {albums[0] ? (
-          albums.map((album) => (
-            <AlbumCard key={album.id} album={album}></AlbumCard>
-          ))
+          albums
+            .slice(0, maxAlbums)
+            .map((album) => (
+              <AlbumCard key={album.id} album={album}></AlbumCard>
+            ))
         ) : (
           <></>
         )}
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

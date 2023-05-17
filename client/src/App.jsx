@@ -2,12 +2,12 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import './featuring/Featuring.jsx';
-import Featuring from './featuring/Featuring.jsx';
-import FansAlsoLike from './fans_also_like/FansAlsoLike';
+import "./featuring/Featuring.jsx";
+import Featuring from "./featuring/Featuring.jsx";
+import FansAlsoLike from "./fans_also_like/FansAlsoLike";
 import Discography from "./Components/Discography/Discography";
-import Sidebar from './sidebar/Sidebar.jsx'
-
+import Sidebar from "./sidebar/Sidebar.jsx";
+import FansLike from "./Components/FansLike/FansLike";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,15 +15,14 @@ function App() {
 
   return (
     <>
-    <div className="main_body">
-      <Sidebar />
-      <div>
-        <Featuring/>
-        <FansAlsoLike/>
-        <Discography artist={artist}></Discography>
+      <div className="main_body">
+        <Sidebar />
+        <div>
+          <Featuring />
+          <Discography artist={artist}></Discography>
+          <FansLike />
+        </div>
       </div>
-    </div>
-
     </>
   );
 }

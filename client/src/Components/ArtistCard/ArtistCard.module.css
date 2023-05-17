@@ -1,4 +1,4 @@
-.album-card {
+.artist-card {
   margin-right: 18.5px;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
   border-radius: 8px;
 }
 
-.album-card:hover {
+.artist-card:hover {
   background-color: rgba(90, 88, 88, 0.505);
   transition: background-color 300ms ease-in;
 }
@@ -24,10 +24,10 @@
   align-self: center;
 }
 
-.album-image {
+.artist-image {
   width: 145px;
   height: 145px;
-  border-radius: 5px;
+  border-radius: 50%;
 }
 
 .play-button {
@@ -62,7 +62,7 @@
   height: 42px;
 }
 
-.album-name {
+.artist-name {
   margin-top: 10px;
   padding-left: 5px;
   text-align: left;
@@ -75,7 +75,7 @@
   text-overflow: ellipsis;
   width: 155px;
 }
-.album-year {
+.artist-title {
   margin-top: -5px;
   padding-left: 5px;
   font-size: 11px;
