@@ -18,7 +18,7 @@ const Dashboard = (props) => {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setArtist(data[0]);
       } catch (error) {
         console.log("error", error);
