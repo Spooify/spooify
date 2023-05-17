@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styles from "./ArtistCard.module.css";
-import playButton from "../../assets/play-button.png";
+import styles from "./AlbumCard.module.css";
+import playButton from "../../../assets/play-button.png";
 
-const Discography = ({ artist }) => {
+const AlbumCard = ({ album }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseOver = () => {
@@ -20,16 +20,17 @@ const Discography = ({ artist }) => {
   return (
     <>
       <button
-        className={styles["artist-card"]}
+        // className={styles["album-card"]}
+        className={styles["album-card"]}
         onClick={handleAlbumClick}
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
         <div className={styles["image-container"]}>
           <img
-            className={styles["artist-image"]}
-            src={artist.image}
-            alt={artist.artist_name}
+            className={styles["album-image"]}
+            src={album.photo}
+            alt={album.album_name}
           ></img>
           {isHovering ? (
             <img className={styles["play-button"]} src={playButton}></img>
@@ -40,11 +41,11 @@ const Discography = ({ artist }) => {
             ></img>
           )}
         </div>
-        <p className={styles["artist-name"]}>{artist.artist_name}</p>
-        <p className={styles["artist-title"]}>{`Artist`}</p>
+        <p className={styles["album-name"]}>{album.album_name}</p>
+        <p className={styles["album-year"]}>{`${album.year_made} • Album`}</p>
       </button>
     </>
   );
 };
 
-export default Discography;
+export default AlbumCard;

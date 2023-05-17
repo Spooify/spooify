@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./FansLike.module.css";
-import ArtistCard from "../ArtistCard/ArtistCard";
+import ArtistCard from "./ArtistCard/ArtistCard";
 
 const FansLike = () => {
-  const [artists, setArtists] = useState("");
+  const [fansLikeArtists, setFansLikeArtists] = useState("");
   const maxArtists = 5;
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const FansLike = () => {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        setArtists(data);
+        setFansLikeArtists(data);
       } catch (error) {
         console.log("error", error);
       }
@@ -25,11 +25,14 @@ const FansLike = () => {
     <section className={styles["fans-container"]}>
       <h2 className={styles.title}>Fans Also Like</h2>
       <div className={styles["fans-bar"]}>
-        {artists[0] ? (
-          artists
+        {fansLikeArtists[0] ? (
+          fansLikeArtists
             .slice(1, maxArtists)
-            .map((artist) => (
-              <ArtistCard key={artist.id} artist={artist}></ArtistCard>
+            .map((fansLikeArtist) => (
+              <ArtistCard
+                key={fansLikeArtist.id}
+                artist={fansLikeArtist}
+              ></ArtistCard>
             ))
         ) : (
           <></>

@@ -22,7 +22,7 @@ Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptb
 
 ###get featured on 
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=appears_on&market=us
-Authorization: Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptbP3AgEXnyTQbS5OPZjYTUUQ8Rsfxp6zA5syKsUEhO_0n
+Authorization: Bearer BQDy68QpKOuzlV5NY611NRYYojAPjzWBPwMa4GdnJP9LQW-6qJNRhq-r3EDZv5yg2v0rxIyZRqMZGPaSe5ulwIGDDkLqF3l8slup_mhTzRVavwdH_yOQ
 
 ### test route for server
 GET http://localhost:8080/
@@ -34,4 +34,4 @@ Authorization: Bearer BQDVI0-asnGciPNdme6763JAxyQIinryEaADr172BPonu3sXMoLlBgwo-Y
 
 ### get track
 GET https://api.spotify.com/v1/tracks/1PCvKFPWnTXAe2oaReVUcr?market=us
-Authorization: Bearer BQA3WGQWli-yg4gqLYf4D4fX7wTTt7fGCLeNwvDp7JrB2BfC4c8MGRIdYEowJCzaGBqOAbaTpYxEERiSXWJKOhz1KwC0Ln1JBoTAugRt_z6aWyXdRXhQ
+Authorization: Bearer BQDy68QpKOuzlV5NY611NRYYojAPjzWBPwMa4GdnJP9LQW-6qJNRhq-r3EDZv5yg2v0rxIyZRqMZGPaSe5ulwIGDDkLqF3l8slup_mhTzRVavwdH_yOQ

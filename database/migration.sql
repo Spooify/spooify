@@ -16,6 +16,7 @@ CREATE TABLE Albums(
     artist text REFERENCES Artists(id),
     photo text
 );
+
 CREATE TABLE Tracks(
     id text PRIMARY KEY,
     name text,
@@ -23,7 +24,6 @@ CREATE TABLE Tracks(
     album text REFERENCES Albums(id),
     artist text REFERENCES Artists(id)
 );
-
 
 CREATE TABLE Playlists(
 id text PRIMARY KEY,

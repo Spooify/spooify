@@ -1,0 +1,82 @@
+.track-card {
+  margin-right: 18.5px;
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+  height: 230px;
+  background-color: rgba(87, 85, 85, 0.084);
+  transition: background-color 300ms ease-out;
+  border: none;
+  border-radius: 8px;
+}
+
+.track-card:hover {
+  background-color: rgba(90, 88, 88, 0.505);
+  transition: background-color 300ms ease-in;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  padding-top: 10px;
+  width: 145px;
+  height: 150px;
+  align-self: center;
+}
+
+.track-image {
+  width: 145px;
+  height: 145px;
+  border-radius: 5px;
+}
+
+.play-button {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 40px;
+  right: 5px;
+  bottom: 10px;
+  z-index: 5;
+  background-color: rgb(91, 144, 91);
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.play-button-hidden {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 40px;
+  right: 5px;
+  bottom: 10px;
+  background-color: rgb(91, 144, 91);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+
+.play-button:hover {
+  width: 42px;
+  height: 42px;
+}
+
+.track-name {
+  margin-top: 10px;
+  padding-left: 5px;
+  text-align: left;
+  top: 0;
+  color: white;
+  font-size: 13.5px;
+  font-weight: bolder;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 155px;
+}
+.track-year {
+  margin-top: -5px;
+  padding-left: 5px;
+  font-size: 11px;
+}
