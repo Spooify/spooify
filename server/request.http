@@ -6,7 +6,7 @@ grant_type=client_credentials&client_id=6428b163585e4c2295c4232278eac6f7&client_
     
 ### get an artist
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg
-Authorization: Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptbP3AgEXnyTQbS5OPZjYTUUQ8Rsfxp6zA5syKsUEhO_0n
+Authorization: Bearer BQBKkBVFsH0gObNqLJUOH7JcKPkyrcDrA-Cg7R3Ra3y4q6CL40fnoPQxf45wnixeuHAHmxwsRq8bTxNw2C7sZQTNLKg269fQuLiwS4anHdmvSD01rtvNQteuCq6Sll7SzBuZzmXTWLaiR_O5ZDeTt9-28pSF5hdjdJeW5JNszed0__XWjA95SBqlxalUq29WzIzZGJ4AqykMYCb5_DPt_Aa0GLX73Udwz7ff7iw
 
 ### get artist top tracks
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/top-tracks?market=us

@@ -1,12 +1,16 @@
 //--- depencies ---
 import dotenv from "dotenv";
 import express from "express";
-const app = express();
+import SpotifyWebApi from "spotify-web-api-node";
+import bodyParser from "body-parser";
 import cors from "cors";
+const app = express();
 dotenv.config();
 app.use(express.json());
 app.use(cors());
-const PORT = 8080;
+app.use(bodyParser.json());
+const PORT = 4000;
+
 
 //--- database connection ---
 // import pkg from "pg";
@@ -17,6 +21,30 @@ const PORT = 8080;
 // pool.connect();
 
 //--- routes ---
+
+
+//--- Spotify authentication ---
+app.post("/api/login", (req, res) => {
+  const code = req.body.code;
+  const spotifyWebApi = new SpotifyWebApi({
+    redirectUri: process.env.REDIRECT_URI,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+  });
+  spotifyWebApi
+    .authorizationCodeGrant(code)
+    .then((data) => {
+      res.json({
+        accessToken: data.body.access_token,
+        refreshToken: data.body.refresh_token,
+        expiresIn: data.body.expires_in,
+      });
+      
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 //--- home route ---
 app.get("/", (req, res) => {
@@ -108,8 +136,3 @@ app.listen(PORT, (error) => {
   }
 });
 
-// {
-//   "access_token": "BQDYNUEWSgT2OeS4t3XBBd96SYLLCSpGN_HXNMcJg012JwQ9KcyZ79ADrIxxjgRNNq_gK1yH_9IOHWGOIpKEm5iKzy9UI4dug3VinGBZNA1XR5zhO8Ch",
-//   "token_type": "Bearer",
-//   "expires_in": 3600
-// }
