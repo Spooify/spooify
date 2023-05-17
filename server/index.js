@@ -39,6 +39,13 @@ app.get("/api/artists/:id", (req, res) => {
     });
 });
 
+//--- get all artist ---
+app.get("/api/artists/", (req, res) => {
+  pool.query("SELECT * FROM artists").then((result) => {
+    res.send(result.rows);
+  });
+});
+
 //--- get singular track ---
 app.get("/api/tracks/:id", (req, res) => {
   pool

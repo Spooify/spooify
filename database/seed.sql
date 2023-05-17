@@ -3,7 +3,7 @@ DELETE FROM Albums;
 DELETE FROM Tracks;
 
 INSERT INTO Artists (id, artist_name, followers, image) 
-VALUES ('0TnOYISbd1XYRBk9myaseg', 'Pit Bull', 9986097, 'https://i.scdn.co/image/ab6761610000e5ebfc9d2abc85b6f4bef77f80ea');
+VALUES ('0TnOYISbd1XYRBk9myaseg', 'Pit Bull', 9986097, 'https://i.scdn.co/image/ab67616100005174fc9d2abc85b6f4bef77f80ea');
 
 INSERT INTO Artists (id, artist_name, followers, image) 
 VALUES ('0jnsk9HBra6NMjO2oANoPY', 'Flo Rida', 8849956, 'https://i.scdn.co/image/ab67616100005174655ca8f3196953554b479452');

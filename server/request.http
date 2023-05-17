@@ -5,8 +5,8 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=6428b163585e4c2295c4232278eac6f7&client_secret=5289a351467b45d2b65130ad2e640f61
     
 ### get an artist
-GET https://api.spotify.com/v1/artists/3Isy6kedDrgPYoTS1dazA9
-Authorization: Bearer BQCdCKcGsFMDUoH-7l1aK87lCJ7N5S0OkkbFovvBjZknPIVnTRT8iIQFFSota0Rko53gRIWpJKm1BotAJdwvGUsvMf6Vp0mQH0rbpXcAunHHK32zUtRX
+GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg
+Authorization: Bearer BQBS6CXXp8gYdNUO1cIBDRAEf4BoswR_gQiByl790CGFYe_OZXajAeXRPPadbsrOS-7nNUS0oDmto43zydwcWSviz-3Qj6gC4ujmPZAzd5rUneIdhScm
 
 ### get artist top tracks
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/top-tracks?market=us
