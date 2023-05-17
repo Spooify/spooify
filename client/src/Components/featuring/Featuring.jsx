@@ -1,4 +1,4 @@
-import "../fans_also_like/FansAlsoLike.css";
+import "./Featuring.css";
 
 const Featuring = (props) => {
   const newFeaturingPhoto = new URL(

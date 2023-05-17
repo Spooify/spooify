@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import Login from './Login'
-import Dashboard from './Dashboard';
-import "./featuring/Featuring.jsx";
+import Login from './Components/Login/Login.jsx'
+import Dashboard from './Components/Dashboard/Dashboard';
+import "./Components/featuring/Featuring.jsx";
 
 
 const code =  new URLSearchParams(window.location.search).get('code');

@@ -1,10 +1,10 @@
 import React from "react";
 import useAuth from "./useAuth";
-import Player from "./Player";
-import Featuring from "./featuring/Featuring.jsx";
+import Player from "../Player/Player";
+import Featuring from "../featuring/Featuring.jsx";
 //import FansAlsoLike from "./fans_also_like/FansAlsoLike";
 import Discography from "../Discography/Discography";
-import Sidebar from "./sidebar/Sidebar.jsx";
+import Sidebar from "../sidebar/Sidebar.jsx";
 import FansLike from "../FansLike/FansLike";
 
 
