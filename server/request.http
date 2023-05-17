@@ -35,3 +35,7 @@ Authorization: Bearer BQDVI0-asnGciPNdme6763JAxyQIinryEaADr172BPonu3sXMoLlBgwo-Y
 ### get track
 GET https://api.spotify.com/v1/tracks/1PCvKFPWnTXAe2oaReVUcr?market=us
 Authorization: Bearer BQA3WGQWli-yg4gqLYf4D4fX7wTTt7fGCLeNwvDp7JrB2BfC4c8MGRIdYEowJCzaGBqOAbaTpYxEERiSXWJKOhz1KwC0Ln1JBoTAugRt_z6aWyXdRXhQ
+
+
+### get database albums
+GET http://localhost:4000/api/albums
