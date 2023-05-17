@@ -5,7 +5,7 @@ import "./Player.css";
 const Player = ({ accessToken }) => {
   if (!accessToken) return null;
   return (
-    <div className="container">
+    <div className="player-container">
       <SpotifyPlayer
         className="player"
         token={accessToken}
