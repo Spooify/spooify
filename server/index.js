@@ -6,11 +6,18 @@ import bodyParser from "body-parser";
 import cors from "cors";
 const app = express();
 dotenv.config();
+// dotenv.config({ path: "server/.env" });
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 const PORT = 4000;
 
+
+import pg from "pg";
+const { Pool } = pg;
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
 //--- database connection ---
 // import pkg from "pg";
@@ -60,6 +67,13 @@ app.get("/api/artists/:id", (req, res) => {
     });
 });
 
+//--- get all artist ---
+app.get("/api/artists/", (req, res) => {
+  pool.query("SELECT * FROM artists").then((result) => {
+    res.send(result.rows);
+  });
+});
+
 //--- get singular track ---
 app.get("/api/tracks/:id", (req, res) => {
   pool
@@ -81,7 +95,7 @@ app.get("/api/albums/:id", (req, res) => {
 //--- get all albums of singular artist ---
 app.get("/api/artists/:id/albums", (req, res) => {
   pool
-    .query("SELECT * FROM albums WHERE artist_id=$1", [req.params.id])
+    .query("SELECT * FROM albums WHERE artist=$1", [req.params.id])
     .then((result) => {
       res.send(result.rows);
     });

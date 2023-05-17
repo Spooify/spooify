@@ -1,0 +1,15 @@
+.fans-container {
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.title {
+  text-align: left;
+  font-size: 19px;
+  color: white;
+}
+
+.fans-bar {
+  display: flex;
+  flex-direction: row;
+}
