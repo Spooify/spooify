@@ -12,7 +12,6 @@ app.use(cors());
 app.use(bodyParser.json());
 const PORT = 4000;
 
-
 import pg from "pg";
 const { Pool } = pg;
 const pool = new Pool({
@@ -28,7 +27,6 @@ const pool = new Pool({
 // pool.connect();
 
 //--- routes ---
-
 
 //--- Spotify authentication ---
 app.post("/api/login", (req, res) => {
@@ -46,7 +44,6 @@ app.post("/api/login", (req, res) => {
         refreshToken: data.body.refresh_token,
         expiresIn: data.body.expires_in,
       });
-      
     })
     .catch((err) => {
       console.log(err);
@@ -77,7 +74,22 @@ app.get("/api/artists/", (req, res) => {
 //--- get singular track ---
 app.get("/api/tracks/:id", (req, res) => {
   pool
-    .query("SELECT * FROM tracks WHERE id=$1", [req.params.id])
+    .query(
+      "SELECT * FROM Tracks JOIN Albums ON Tracks.album=Albums.id  WHERE Tracks.id=$1",
+      [req.params.id]
+    )
+    .then((result) => {
+      res.send(result.rows);
+    });
+});
+
+//--- get all featuring tracks from artist ---
+app.get("/api/featuring/:id", (req, res) => {
+  pool
+    .query(
+      "SELECT * FROM Tracks JOIN Albums ON Tracks.album=Albums.id  WHERE Tracks.artist=$1",
+      [req.params.id]
+    )
     .then((result) => {
       res.send(result.rows);
     });
@@ -149,4 +161,3 @@ app.listen(PORT, (error) => {
     console.log(`server running at ${PORT}`);
   }
 });
-
