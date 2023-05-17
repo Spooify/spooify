@@ -15,9 +15,9 @@ export default function useAuth(code) {
         setRefreshToken(res.data.refreshToken);
         setExpiresIn(res.data.expiresIn);
       })
-      .catch(() => {
-        window.location = "/";
-      });
+      // .catch(() => {
+      //   window.location = "/";
+      // });
   }, [code]);
 
   

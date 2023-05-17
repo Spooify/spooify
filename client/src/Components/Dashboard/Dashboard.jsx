@@ -3,9 +3,9 @@ import useAuth from "./useAuth";
 import Player from "./Player";
 import Featuring from "./featuring/Featuring.jsx";
 //import FansAlsoLike from "./fans_also_like/FansAlsoLike";
-import Discography from "./Components/Discography/Discography";
+import Discography from "../Discography/Discography";
 import Sidebar from "./sidebar/Sidebar.jsx";
-import FansLike from "./Components/FansLike/FansLike";
+import FansLike from "../FansLike/FansLike";
 
 
 

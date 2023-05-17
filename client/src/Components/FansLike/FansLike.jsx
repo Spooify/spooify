@@ -7,7 +7,7 @@ const FansLike = () => {
   const maxArtists = 5;
 
   useEffect(() => {
-    const url = `http://localhost:8080/api/artists`;
+    const url = `http://localhost:4000/api/artists`;
 
     const fetchData = async () => {
       try {

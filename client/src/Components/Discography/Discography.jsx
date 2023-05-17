@@ -7,7 +7,7 @@ const Discography = ({ artist }) => {
   const maxAlbums = 9;
 
   useEffect(() => {
-    const url = `http://localhost:8080/api/artists/${artist}/albums`;
+    const url = `http://localhost:4000/api/artists/${artist}/albums`;
 
     const fetchData = async () => {
       try {
