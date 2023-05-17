@@ -21,6 +21,6 @@ export default function useAuth(code) {
   }, [code]);
 
   
-  console.log(accessToken);
+ 
   return accessToken;
 }
