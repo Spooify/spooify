@@ -21,7 +21,8 @@ CREATE TABLE Tracks(
     name text,
     duration int,
     album text REFERENCES Albums(id),
-    artist text REFERENCES Artists(id)
+    artist text REFERENCES Artists(id),
+    featured_artist text REFERENCES Artists(id)
 );
 
 
