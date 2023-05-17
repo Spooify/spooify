@@ -2,8 +2,9 @@ DELETE FROM Artists;
 DELETE FROM Albums;
 DELETE FROM Tracks;
 
+--- Artist information ---
 INSERT INTO Artists (id, artist_name, followers, image) 
-VALUES ('0TnOYISbd1XYRBk9myaseg', 'Pit Bull', 9986097, 'https://i.scdn.co/image/ab67616100005174fc9d2abc85b6f4bef77f80ea');
+VALUES ('0TnOYISbd1XYRBk9myaseg', 'Pitbull', 9986097, 'https://i.scdn.co/image/ab67616100005174fc9d2abc85b6f4bef77f80ea');
 
 INSERT INTO Artists (id, artist_name, followers, image) 
 VALUES ('0jnsk9HBra6NMjO2oANoPY', 'Flo Rida', 8849956, 'https://i.scdn.co/image/ab67616100005174655ca8f3196953554b479452');
@@ -29,7 +30,20 @@ VALUES ('5ndkK3dpZLKtBklKjxNQwT', 'B.o.B', 2097559, 'https://i.scdn.co/image/ab6
 INSERT INTO Artists (id, artist_name, followers, image) 
 VALUES ('3Isy6kedDrgPYoTS1dazA9', 'Sean Paul', 4341073, 'https://i.scdn.co/image/ab6761610000517460c3e9abe7327c0097738f22');
 
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('4VMYDCV2IEDYJArk749S6m', 'Daddy Yankee', 32706068, 'https://i.scdn.co/image/ab6761610000e5ebb00a14e06b6bce10b078d754');
 
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('5lwmRuXgjX8xIwlnauTZIP', 'Romeo Santos', 18690383, 'https://i.scdn.co/image/ab6761610000e5eb6d8b48abede0f9e433aa6e49');
+
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('23zg3TcAtWQy7J6upgbUnj', 'Usher', 10488385, 'https://i.scdn.co/image/ab6761610000e5eb84813d8e6a3154717e618140');
+
+INSERT INTO Artists (id, artist_name, followers, image) 
+VALUES ('3fMbdgg4jU18AjLCKBhRSm', 'Michael Jackson', 27188359, 'https://i.scdn.co/image/ab6761610000e5eb0e08ea2c4d6789fbf5cbe0aa');
+
+
+--- ALbum Information ---
 INSERT INTO Albums (id, album_name, year_made, song_amount, total_duration, photo, artist) 
 VALUES ('7I4Vx91kradxSJNwg1ycbq', 'Global Warming: (Deluxe Version)', 2012, 16, 3381969, 
 'https://i.scdn.co/image/ab67616d0000b273f575130838bc98c4f2b17312', '0TnOYISbd1XYRBk9myaseg');
@@ -71,6 +85,8 @@ VALUES ('4jtKPpBQ5eneMwEI94f5Y0', 'Climate Change', 2017, 12, 2663276,
 'https://i.scdn.co/image/ab67616d00001e02847d47b2d33517f0e8b2b958', '0TnOYISbd1XYRBk9myaseg');
 
 
+
+--- Track information ---
 INSERT INTO Tracks (id, name, duration, album, artist) 
 VALUES ('3cHyrEgdyYRjgJKSOiOtcS', 'Timber (feat. Ke$ha)', 204160, '7I4Vx91kradxSJNwg1ycbq', '0TnOYISbd1XYRBk9myaseg');
 
@@ -100,3 +116,15 @@ VALUES ('3rfhI32Il2hVRKDkuGeeen', 'Hey Baby (Drop It to the Floor) (feat. T-Pain
 
 INSERT INTO Tracks (id, name, duration, album, artist) 
 VALUES ('1PCvKFPWnTXAe2oaReVUcr', 'We Are One (Ole Ola) [The Official 2014 FIFA World Cup Song] (feat. Jennifer Lopez & Claudia Leitte)', 222520, '4EUf4YyNjuXypWY6W5wEDm', '0TnOYISbd1XYRBk9myaseg');
+
+INSERT INTO Tracks (id, name, duration, artist, featured_artist) 
+VALUES ('5Pg4qYTcvCUBBq3jBhKq0t', 'HOT', 154493, '4VMYDCV2IEDYJArk749S6m', '0TnOYISbd1XYRBk9myaseg');
+
+INSERT INTO Tracks (id, name, duration, artist, featured_artist) 
+VALUES ('29N71XR1pCmuGEixRdzELO', 'Aleluya (feat. Pitbull)', 205640, '5lwmRuXgjX8xIwlnauTZIP', '0TnOYISbd1XYRBk9myaseg');
+
+INSERT INTO Tracks (id, name, duration, artist, featured_artist) 
+VALUES ('4356Typ82hUiFAynbLYbPn', 'DJ Got Us Fallin In Love (feat. Pitbull)', 220800, '23zg3TcAtWQy7J6upgbUnj', '0TnOYISbd1XYRBk9myaseg');
+
+INSERT INTO Tracks (id, name, duration, artist, featured_artist) 
+VALUES ('7lVHsLX1Tgy0UqQFk8NsCO', 'Bad (feat. Pitbull)', 264733, '3fMbdgg4jU18AjLCKBhRSm', '0TnOYISbd1XYRBk9myaseg');

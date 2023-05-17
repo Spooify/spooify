@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Discography.module.css";
-import AlbumCard from "../AlbumCard/AlbumCard";
+import AlbumCard from "./AlbumCard/AlbumCard";
 
 const Discography = ({ artist }) => {
   const [albums, setAlbums] = useState("");
   const maxAlbums = 9;
 
   useEffect(() => {
-    const url = `http://localhost:4000/api/artists/${artist}/albums`;
+    const url = `http://localhost:4000/api/artists/${artist.id}/albums`;
 
     const fetchData = async () => {
       try {
@@ -19,7 +19,7 @@ const Discography = ({ artist }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [artist]);
 
   return (
     <section className={styles["disco-container"]}>

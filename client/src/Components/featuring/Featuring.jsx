@@ -1,34 +1,43 @@
-import "./Featuring.css";
+import React, { useEffect, useState } from "react";
+import styles from "./Featuring.module.css";
+import TrackCard from "./TrackCard/TrackCard";
 
-const Featuring = (props) => {
-  const newFeaturingPhoto = new URL(
-    "./test_image/breaker.jpeg",
-    import.meta.url
-  );
+const Featuring = ({ artist }) => {
+  const [tracks, setTracks] = useState("");
+  const maxTracks = 9;
+
+  useEffect(() => {
+    const url = `http://localhost:4000/api/featuring/${artist.id}/`;
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        setTracks(data);
+        console.log(data);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchData();
+  }, [artist]);
 
   return (
-    <div className="container">
-    <div className="fans_also_like">
-      <div className="title">
-        <h1 className="fans_also_like_header">Featuring August Burns Red</h1>
-        <div className="show_all">Show All</div>
+    <section className={styles["featuring-container"]}>
+      <h2 className={styles.title}>{`Featuring ${artist.artist_name}`}</h2>
+      <div className={styles["featuring-bar"]}>
+        {tracks[0] ? (
+          tracks
+            .slice(0, maxTracks)
+            .map((track) => (
+              <TrackCard key={track.id} track={track}></TrackCard>
+            ))
+        ) : (
+          <></>
+        )}
       </div>
-      <div className="new_artist_option">
-        <img
-          className="new_artist_photo"
-          src={newFeaturingPhoto}
-          alt="logo"
-        ></img>
-        <button className="play_artist_button">
-          <div className="play_triangle"></div>
-        </button>
-        <h2 className="artist_name">This is August Burns Red</h2>
-        <p className="artist_description">
-          This is August Burns Red. The essential tracks all in one playlist{" "}
-        </p>
-      </div>
-    </div>
-    </div>
+    </section>
   );
 };
+
 export default Featuring;
