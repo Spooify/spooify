@@ -3,6 +3,7 @@ import useAuth from "./useAuth";
 import Player from "../Player/Player";
 import HeaderImage from "../HeaderImage/HeaderImage";
 import Featuring from "../Featuring/Featuring.jsx";
+import PopularSongs from "../PopularSongsByArtist/PopularSongs";
 import Discography from "../Discography/Discography";
 import Sidebar from "../sidebar/Sidebar.jsx";
 import FansLike from "../FansLike/FansLike";
@@ -45,6 +46,7 @@ const Dashboard = (props) => {
     }
   }, [artist]);
 
+
   return (
     <>
       {albums ? (
@@ -53,6 +55,7 @@ const Dashboard = (props) => {
             <Sidebar />
             <div>
               <HeaderImage albums={albums} />
+              <PopularSongs albums={albums} />
               <Discography albums={albums}></Discography>
               <FansLike />
               <Featuring artist={artist} />
