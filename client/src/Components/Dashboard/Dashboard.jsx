@@ -6,11 +6,13 @@ import Featuring from "../Featuring/Featuring.jsx";
 import Discography from "../Discography/Discography";
 import Sidebar from "../sidebar/Sidebar.jsx";
 import FansLike from "../FansLike/FansLike";
+import PlaylistPage from "../PlaylistPage/PlaylistPage";
 
 const Dashboard = (props) => {
   const accessToken = useAuth(props.code);
   const [artist, setArtist] = useState();
   const [albums, setAlbums] = useState();
+  const [showPlaylist, setShowPlaylist] = useState(false);
 
   useEffect(() => {
     const url = `http://localhost:4000/api/artists/0TnOYISbd1XYRBk9myaseg`;
@@ -30,7 +32,7 @@ const Dashboard = (props) => {
 
   useEffect(() => {
     if (artist) {
-      const url = `http://localhost:4000/api/artists/${artist.id}/albums`;
+      const url = `http://localhost:4000/api/artists/${artist.artist_id}/albums`;
 
       const fetchData = async () => {
         try {
@@ -50,13 +52,25 @@ const Dashboard = (props) => {
       {albums ? (
         <>
           <div className="main_body">
-            <Sidebar />
-            <div>
-              <HeaderImage albums={albums} />
-              <Discography albums={albums}></Discography>
-              <FansLike />
-              <Featuring artist={artist} />
-            </div>
+            {showPlaylist ? (
+              <>
+                <Sidebar setShowPlaylist={setShowPlaylist} />
+                <PlaylistPage />
+                <div>
+                  <HeaderImage albums={albums} />
+                </div>
+              </>
+            ) : (
+              <>
+                <Sidebar setShowPlaylist={setShowPlaylist} />
+                <div>
+                  <HeaderImage albums={albums} />
+                  <Discography albums={albums}></Discography>
+                  <FansLike />
+                  <Featuring artist={artist} />
+                </div>
+              </>
+            )}
           </div>
           <Player accessToken={accessToken} />
         </>

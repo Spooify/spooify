@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import styles from "./TrackCard.module.css";
 import playButton from "../../../assets/play-button.png";
+import favIcon from "../../../assets/fav-icon.png";
+import favIconFav from "../../../assets/fav-icon-favorite.png";
 
 const TrackCard = ({ track }) => {
   const [isHovering, setIsHovering] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -19,7 +22,33 @@ const TrackCard = ({ track }) => {
 
   const handlePlay = (e) => {
     e.stopPropagation();
-    console.log("Play Clicked");
+  };
+
+  const handleFavorite = async (e) => {
+    e.stopPropagation();
+    let favorite = !isFavorite;
+    setIsFavorite(!isFavorite);
+    console.log("Favorite Clicked");
+    console.log(track);
+
+    if (favorite) {
+      console.log("adding favorite");
+
+      try {
+        await fetch(`http://localhost:4000/api/playlists/${track.track_id}/`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({ id: 1 }),
+        });
+      } catch (error) {
+        console.log("error", error);
+      }
+    } else {
+      console.log("deleting favorite");
+    }
   };
 
   return (
@@ -38,16 +67,29 @@ const TrackCard = ({ track }) => {
             alt={track.album_name}
           ></img>
           {isHovering ? (
-            <img
-              className={styles["play-button"]}
-              onClick={handlePlay}
-              src={playButton}
-            ></img>
+            <>
+              <img
+                className={styles["fav-icon"]}
+                onClick={handleFavorite}
+                src={isFavorite ? favIconFav : favIcon}
+              ></img>
+              <img
+                className={styles["play-button"]}
+                onClick={handlePlay}
+                src={playButton}
+              ></img>
+            </>
           ) : (
-            <img
-              className={styles["play-button-hidden"]}
-              src={playButton}
-            ></img>
+            <>
+              <img
+                className={styles["fav-icon-hidden"]}
+                src={isFavorite ? favIconFav : favIcon}
+              ></img>
+              <img
+                className={styles["play-button-hidden"]}
+                src={playButton}
+              ></img>
+            </>
           )}
         </div>
         <p className={styles["track-name"]}>{track.name}</p>
