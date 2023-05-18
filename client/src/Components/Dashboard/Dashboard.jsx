@@ -14,6 +14,28 @@ const Dashboard = (props) => {
   const [albums, setAlbums] = useState();
   const [showPlaylist, setShowPlaylist] = useState(false);
   const [playingTrack, setPlayingTrack] = useState();
+  const [favoriteSongs, setFavoriteSongs] = useState([]);
+  const [favChange, setFavChange] = useState(false);
+
+  useEffect(() => {
+    const url = `http://localhost:4000/api/playlists/1`;
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        let tracks = [];
+        for (let i = 0; i < data.length; i++) {
+          tracks.push(data[i].track_id);
+        }
+        setFavoriteSongs(tracks);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchData();
+    setFavChange(false);
+  }, [favChange]);
 
   useEffect(() => {
     const url = `http://localhost:4000/api/artists/0TnOYISbd1XYRBk9myaseg`;
@@ -22,7 +44,6 @@ const Dashboard = (props) => {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        // console.log(data);
         setArtist(data[0]);
       } catch (error) {
         console.log("error", error);
@@ -56,25 +77,41 @@ const Dashboard = (props) => {
           <div className="main_body">
             {showPlaylist ? (
               <>
-                <Sidebar setShowPlaylist={setShowPlaylist} />
-                <PlaylistPage />
+                <Sidebar
+                  setShowPlaylist={setShowPlaylist}
+                  favoriteSongs={favoriteSongs}
+                />
                 <div>
                   <HeaderImage albums={albums} />
+                  <PlaylistPage favoriteSongs={favoriteSongs} />
                 </div>
               </>
             ) : (
               <>
-                <Sidebar setShowPlaylist={setShowPlaylist} />
+                <Sidebar
+                  setShowPlaylist={setShowPlaylist}
+                  favoriteSongs={favoriteSongs}
+                />
                 <div>
                   <HeaderImage albums={albums} />
                   <Discography albums={albums}></Discography>
                   <FansLike />
-                  <Featuring artist={artist} playingTrack={playingTrack} setPlayingTrack={setPlayingTrack} />
+                  <Featuring
+                    artist={artist}
+                    favoriteSongs={favoriteSongs}
+                    setFavChange={setFavChange}
+                    playingTrack={playingTrack}
+                    setPlayingTrack={setPlayingTrack}
+                  />
                 </div>
               </>
             )}
           </div>
-          <Player accessToken={accessToken} playingTrack={playingTrack} setPlayingTrack={setPlayingTrack} />
+          <Player
+            accessToken={accessToken}
+            playingTrack={playingTrack}
+            setPlayingTrack={setPlayingTrack}
+          />
         </>
       ) : (
         <></>

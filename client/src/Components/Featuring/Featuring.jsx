@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Featuring.module.css";
 import TrackCard from "./TrackCard/TrackCard";
 
-const Featuring = ({ artist, playingTrack, setPlayingTrack }) => {
+const Featuring = ({ artist, favoriteSongs, setFavChange, playingTrack, setPlayingTrack }) => {
   const [tracks, setTracks] = useState();
   const maxTracks = 8;
 
@@ -28,10 +28,12 @@ const Featuring = ({ artist, playingTrack, setPlayingTrack }) => {
         {tracks ? (
           tracks.map((track) => (
             <TrackCard
-              key={track.id}
-              track={track}
               playingTrack={playingTrack}
               setPlayingTrack={setPlayingTrack}
+              key={track.track_id}
+              track={track}
+              favoriteSongs={favoriteSongs}
+              setFavChange={setFavChange}
             ></TrackCard>
           ))
         ) : (

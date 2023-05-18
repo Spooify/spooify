@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./TrackCard.module.css";
 import playButton from "../../../assets/play-button.png";
 import favIcon from "../../../assets/fav-icon.png";
 import favIconFav from "../../../assets/fav-icon-favorite.png";
 
-const TrackCard = ({ track, playingTrack, setPlayingTrack }) => {
+const TrackCard = ({ track, favoriteSongs, setFavChange, playingTrack, setPlayingTrack }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    favoriteSongs.includes(track.track_id)
+      ? setIsFavorite(true)
+      : setIsFavorite(false);
+  }, []);
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -27,14 +33,12 @@ const TrackCard = ({ track, playingTrack, setPlayingTrack }) => {
 
   const handleFavorite = async (e) => {
     e.stopPropagation();
+    setFavChange(true);
     let favorite = !isFavorite;
     setIsFavorite(!isFavorite);
     console.log("Favorite Clicked");
-    console.log(track);
 
     if (favorite) {
-      console.log("adding favorite");
-
       try {
         await fetch(`http://localhost:4000/api/playlists/${track.track_id}/`, {
           method: "POST",
@@ -42,20 +46,29 @@ const TrackCard = ({ track, playingTrack, setPlayingTrack }) => {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
           },
-          body: JSON.stringify({ id: 1 }),
+          body: JSON.stringify({ playlist_id: 1 }),
         });
       } catch (error) {
         console.log("error", error);
       }
     } else {
-      console.log("deleting favorite");
+      try {
+        await fetch(`http://localhost:4000/api/playlists/1/${track.track_id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        });
+      } catch (error) {
+        console.log("error", error);
+      }
     }
   };
 
   return (
     <>
       <button
-        // className={styles["album-card"]}
         className={styles["track-card"]}
         onClick={handleAlbumClick}
         onMouseOver={handleMouseOver}

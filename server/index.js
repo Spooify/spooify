@@ -75,7 +75,7 @@ app.get("/api/artists/", (req, res) => {
 app.get("/api/tracks/:id", (req, res) => {
   pool
     .query(
-      "SELECT * FROM Tracks JOIN Albums ON Tracks.album_id=Albums.album_id WHERE Tracks.track_id=$1",
+      "SELECT * FROM Tracks FULL JOIN Albums ON Tracks.album_id=Albums.album_id FULL JOIN Artists ON Tracks.artist_id=Artists.artist_id WHERE Tracks.track_id=$1",
       [req.params.id]
     )
     .then((result) => {
@@ -136,18 +136,18 @@ app.get("/api/playlists", (req, res) => {
 //--- get singular playlist ---
 app.get("/api/playlists/:id", (req, res) => {
   pool
-    .query("SELECT * FROM playlists WHERE playlist_id=$1", [req.params.id])
+    .query("SELECT * FROM Playlists WHERE playlist_id=$1", [req.params.id])
     .then((result) => {
       res.send(result.rows);
     });
 });
 
 //--- add track to playlist ---
-app.post("/api/playlists/:id/tracks", (req, res) => {
+app.post("/api/playlists/:track_id", (req, res) => {
   pool
-    .query("INSERT INTO playlist(track_id, playlist_id) VALUES ($1, $2)", [
-      req.body.track_id,
-      req.params.id,
+    .query("INSERT INTO Playlists (track_id, playlist_id) VALUES ($1, $2)", [
+      req.params.track_id,
+      req.body.playlist_id,
     ])
     .then((result) => {
       res.send(result.rows);
@@ -155,11 +155,12 @@ app.post("/api/playlists/:id/tracks", (req, res) => {
 });
 
 //--- delete track from playlist ---
-app.delete("/api/playlists/:id/tracks/:track_id", (req, res) => {
+app.delete("/api/playlists/:playlist_id/:track_id", (req, res) => {
+  console.log("deleting");
   pool
-    .query("DELETE FROM Playlist WHERE track_id=$1 AND playlist_id=$2", [
+    .query("DELETE FROM Playlists WHERE track_id=$1 AND playlist_id=$2", [
       req.params.track_id,
-      req.params.id,
+      req.params.playlist_id,
     ])
     .then((result) => {
       res.send(result.rows);
