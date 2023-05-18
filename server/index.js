@@ -143,6 +143,7 @@ app.post("/api/playlists/:track_id", (req, res) => {
 
 //--- delete track from playlist ---
 app.delete("/api/playlists/:playlist_id/:track_id", (req, res) => {
+  console.log("deleting");
   pool
     .query("DELETE FROM Playlists WHERE track_id=$1 AND playlist_id=$2", [
       req.params.track_id,

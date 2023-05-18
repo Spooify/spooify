@@ -14,6 +14,7 @@ const Dashboard = (props) => {
   const [albums, setAlbums] = useState();
   const [showPlaylist, setShowPlaylist] = useState(false);
   const [favoriteSongs, setFavoriteSongs] = useState([]);
+  const [favChange, setFavChange] = useState(false);
 
   useEffect(() => {
     const url = `http://localhost:4000/api/playlists/1`;
@@ -33,7 +34,8 @@ const Dashboard = (props) => {
       }
     };
     fetchData();
-  }, []);
+    setFavChange(false);
+  }, [favChange]);
 
   useEffect(() => {
     const url = `http://localhost:4000/api/artists/0TnOYISbd1XYRBk9myaseg`;
@@ -52,7 +54,6 @@ const Dashboard = (props) => {
 
   useEffect(() => {
     if (artist) {
-      console.log(favoriteSongs);
       const url = `http://localhost:4000/api/artists/${artist.artist_id}/albums`;
 
       const fetchData = async () => {
@@ -94,7 +95,11 @@ const Dashboard = (props) => {
                   <HeaderImage albums={albums} />
                   <Discography albums={albums}></Discography>
                   <FansLike />
-                  <Featuring artist={artist} favoriteSongs={favoriteSongs} />
+                  <Featuring
+                    artist={artist}
+                    favoriteSongs={favoriteSongs}
+                    setFavChange={setFavChange}
+                  />
                 </div>
               </>
             )}

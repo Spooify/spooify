@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Featuring.module.css";
 import TrackCard from "./TrackCard/TrackCard";
 
-const Featuring = ({ artist, favoriteSongs }) => {
+const Featuring = ({ artist, favoriteSongs, setFavChange }) => {
   const [tracks, setTracks] = useState();
   const maxTracks = 8;
 
@@ -31,6 +31,7 @@ const Featuring = ({ artist, favoriteSongs }) => {
               key={track.track_id}
               track={track}
               favoriteSongs={favoriteSongs}
+              setFavChange={setFavChange}
             ></TrackCard>
           ))
         ) : (

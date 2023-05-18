@@ -4,7 +4,7 @@ import playButton from "../../../assets/play-button.png";
 import favIcon from "../../../assets/fav-icon.png";
 import favIconFav from "../../../assets/fav-icon-favorite.png";
 
-const TrackCard = ({ track, favoriteSongs }) => {
+const TrackCard = ({ track, favoriteSongs, setFavChange }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -32,14 +32,13 @@ const TrackCard = ({ track, favoriteSongs }) => {
 
   const handleFavorite = async (e) => {
     e.stopPropagation();
+    setFavChange(true);
     let favorite = !isFavorite;
     setIsFavorite(!isFavorite);
     console.log("Favorite Clicked");
     console.log(track);
 
     if (favorite) {
-      console.log("adding favorite");
-
       try {
         await fetch(`http://localhost:4000/api/playlists/${track.track_id}/`, {
           method: "POST",
@@ -53,7 +52,6 @@ const TrackCard = ({ track, favoriteSongs }) => {
         console.log("error", error);
       }
     } else {
-      console.log("deleting favorite");
       try {
         await fetch(`http://localhost:4000/api/playlists/1/${track.track_id}`, {
           method: "DELETE",
