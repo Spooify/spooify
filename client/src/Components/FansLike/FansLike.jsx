@@ -4,7 +4,7 @@ import ArtistCard from "./ArtistCard/ArtistCard";
 
 const FansLike = () => {
   const [fansLikeArtists, setFansLikeArtists] = useState("");
-  const maxArtists = 5;
+  const maxArtists = 10;
 
   useEffect(() => {
     const url = `http://localhost:4000/api/artists`;

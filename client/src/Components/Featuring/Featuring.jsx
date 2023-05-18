@@ -3,8 +3,8 @@ import styles from "./Featuring.module.css";
 import TrackCard from "./TrackCard/TrackCard";
 
 const Featuring = ({ artist }) => {
-  const [tracks, setTracks] = useState("");
-  const maxTracks = 9;
+  const [tracks, setTracks] = useState();
+  const maxTracks = 8;
 
   useEffect(() => {
     const url = `http://localhost:4000/api/featuring/${artist.id}/`;
@@ -26,12 +26,10 @@ const Featuring = ({ artist }) => {
     <section className={styles["featuring-container"]}>
       <h2 className={styles.title}>{`Featuring ${artist.artist_name}`}</h2>
       <div className={styles["featuring-bar"]}>
-        {tracks[0] ? (
-          tracks
-            .slice(0, maxTracks)
-            .map((track) => (
-              <TrackCard key={track.id} track={track}></TrackCard>
-            ))
+        {tracks ? (
+          tracks.map((track) => (
+            <TrackCard key={track.id} track={track}></TrackCard>
+          ))
         ) : (
           <></>
         )}
