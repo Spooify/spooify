@@ -13,7 +13,7 @@ const Discography = ({ albums }) => {
           albums
             .slice(0, maxAlbums)
             .map((album) => (
-              <AlbumCard key={album.id} album={album}></AlbumCard>
+              <AlbumCard key={album.album_id} album={album}></AlbumCard>
             ))
         ) : (
           <></>

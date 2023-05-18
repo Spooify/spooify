@@ -7,7 +7,7 @@ const Featuring = ({ artist }) => {
   const maxTracks = 8;
 
   useEffect(() => {
-    const url = `http://localhost:4000/api/featuring/${artist.id}/`;
+    const url = `http://localhost:4000/api/featuring/${artist.artist_id}/`;
 
     const fetchData = async () => {
       try {
