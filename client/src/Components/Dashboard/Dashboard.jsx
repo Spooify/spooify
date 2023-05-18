@@ -26,7 +26,6 @@ const Dashboard = (props) => {
         let tracks = [];
         for (let i = 0; i < data.length; i++) {
           tracks.push(data[i].track_id);
-          console.log(data[i].track_id);
         }
         setFavoriteSongs(tracks);
       } catch (error) {
@@ -80,9 +79,9 @@ const Dashboard = (props) => {
                   setShowPlaylist={setShowPlaylist}
                   favoriteSongs={favoriteSongs}
                 />
-                <PlaylistPage favoriteSongs={favoriteSongs} />
                 <div>
                   <HeaderImage albums={albums} />
+                  <PlaylistPage favoriteSongs={favoriteSongs} />
                 </div>
               </>
             ) : (

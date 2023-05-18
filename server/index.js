@@ -75,7 +75,7 @@ app.get("/api/artists/", (req, res) => {
 app.get("/api/tracks/:id", (req, res) => {
   pool
     .query(
-      "SELECT * FROM Tracks JOIN Albums ON Tracks.album_id=Albums.album_id WHERE Tracks.track_id=$1",
+      "SELECT * FROM Tracks FULL JOIN Albums ON Tracks.album_id=Albums.album_id FULL JOIN Artists ON Tracks.artist_id=Artists.artist_id WHERE Tracks.track_id=$1",
       [req.params.id]
     )
     .then((result) => {

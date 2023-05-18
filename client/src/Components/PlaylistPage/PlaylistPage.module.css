@@ -1,11 +1,28 @@
-.disco-container {
+.playlist-container {
   padding-left: 15px;
 }
 
-.title {
+.header-bar {
+  display: flex;
   text-align: left;
   font-size: 19px;
   color: white;
+}
+
+.number {
+  width: 100px;
+}
+
+.title {
+  width: 700px;
+}
+
+.album {
+  width: 500px;
+}
+
+.duration {
+  width: 100px;
 }
 
 .disco-bar {

@@ -36,7 +36,6 @@ const TrackCard = ({ track, favoriteSongs, setFavChange }) => {
     let favorite = !isFavorite;
     setIsFavorite(!isFavorite);
     console.log("Favorite Clicked");
-    console.log(track);
 
     if (favorite) {
       try {
@@ -69,7 +68,6 @@ const TrackCard = ({ track, favoriteSongs, setFavChange }) => {
   return (
     <>
       <button
-        // className={styles["album-card"]}
         className={styles["track-card"]}
         onClick={handleAlbumClick}
         onMouseOver={handleMouseOver}
