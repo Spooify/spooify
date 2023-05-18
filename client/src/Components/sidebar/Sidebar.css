@@ -65,7 +65,7 @@ button:hover{
     /* border: 1px solid #ffffff; */
     border-radius: 10px;
     height: 100%;
-    margin: 6px 2px 2px 2px;
+    /* margin: 6px 2px 2px 2px; */
     color: #a9a5a5;
 }
 
@@ -102,17 +102,15 @@ button:hover{
 }
 
 
-.sidebar{
-
+.sidebar {
+    position: sticky;
     top: 0;
-    left: 0;
-    bottom: 0;
-    width: 20%;
+    height: 100vh; /* Adjust the height as needed */
+    width: 35%;
     background-color: #000000;
-    /* z-index: 1; */
     color: #ffffff;
     padding: 4px;
-    
+    overflow-y: auto hidden; /* Enable vertical scrolling if needed */
 }
 
 .sidebarItem{

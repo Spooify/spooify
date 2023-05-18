@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import useAuth from "./useAuth";
 import Player from "../Player/Player";
 import HeaderImage from "../HeaderImage/HeaderImage";
-import Featuring from "../Featuring/Featuring.jsx";
-import Discography from "../Discography/Discography";
+// import Featuring from "../Featuring/Featuring.jsx";
+// import Discography from "../Discography/Discography";
 import Sidebar from "../sidebar/Sidebar.jsx";
-import FansLike from "../FansLike/FansLike";
+// import FansLike from "../FansLike/FansLike";
 
 const Dashboard = (props) => {
   const accessToken = useAuth(props.code);
@@ -52,10 +52,10 @@ const Dashboard = (props) => {
           <div className="main_body">
             <Sidebar />
             <div>
-              <HeaderImage albums={albums} />
-              <Discography albums={albums}></Discography>
+              <HeaderImage albums={albums} artist={artist}/>
+              {/* <Discography albums={albums}></Discography>
               <FansLike />
-              <Featuring artist={artist} />
+              <Featuring artist={artist} /> */}
             </div>
           </div>
           <Player accessToken={accessToken} />
