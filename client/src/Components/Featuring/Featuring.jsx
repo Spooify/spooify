@@ -2,19 +2,18 @@ import React, { useEffect, useState } from "react";
 import styles from "./Featuring.module.css";
 import TrackCard from "./TrackCard/TrackCard";
 
-const Featuring = ({ artist }) => {
+const Featuring = ({ artist, favoriteSongs, setFavChange, playingTrack, setPlayingTrack }) => {
   const [tracks, setTracks] = useState();
   const maxTracks = 8;
 
   useEffect(() => {
-    const url = `http://localhost:4000/api/featuring/${artist.id}/`;
+    const url = `http://localhost:4000/api/featuring/${artist.artist_id}/`;
 
     const fetchData = async () => {
       try {
         const response = await fetch(url);
         const data = await response.json();
         setTracks(data);
-        console.log(data);
       } catch (error) {
         console.log("error", error);
       }
@@ -28,7 +27,14 @@ const Featuring = ({ artist }) => {
       <div className={styles["featuring-bar"]}>
         {tracks ? (
           tracks.map((track) => (
-            <TrackCard key={track.id} track={track}></TrackCard>
+            <TrackCard
+              playingTrack={playingTrack}
+              setPlayingTrack={setPlayingTrack}
+              key={track.track_id}
+              track={track}
+              favoriteSongs={favoriteSongs}
+              setFavChange={setFavChange}
+            ></TrackCard>
           ))
         ) : (
           <></>

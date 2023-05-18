@@ -1,18 +1,24 @@
-.track-card {
+.fav-card {
   margin-right: 18.5px;
   display: flex;
-  flex-direction: column;
-  width: 170px;
-  height: 230px;
-  background-color: rgba(87, 85, 85, 0.084);
-  transition: background-color 300ms ease-out;
+  flex-direction: row;
+  width: 1400px;
+  height: 80px;
+  margin-top: 10px;
   border: none;
   border-radius: 8px;
 }
 
-.track-card:hover {
+.fav-card:hover {
+  margin-right: 18.5px;
+  display: flex;
+  flex-direction: row;
+  width: 1400px;
+  height: 80px;
+  margin-top: 10px;
+  border: none;
   background-color: rgba(90, 88, 88, 0.505);
-  transition: background-color 300ms ease-in;
+  border-radius: 8px;
 }
 
 .image-container {
@@ -22,12 +28,6 @@
   width: 145px;
   height: 150px;
   align-self: center;
-}
-
-.track-image {
-  width: 145px;
-  height: 145px;
-  border-radius: 5px;
 }
 
 .fav-icon {
@@ -108,21 +108,30 @@
   height: 42px;
 }
 
-.track-name {
-  margin-top: 10px;
-  padding-left: 5px;
-  text-align: left;
-  top: 0;
-  color: white;
-  font-size: 13.5px;
-  font-weight: bolder;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 150px;
+.track-image {
+  width: 50px;
+  height: 50px;
+  align-self: center;
+  border-radius: 5px;
 }
-.track-year {
-  margin-top: -5px;
-  padding-left: 5px;
-  font-size: 11px;
+
+.number {
+  align-self: center;
+  width: 100px;
+}
+
+.title {
+  text-align: left;
+  padding-left: 15px;
+  width: 650px;
+}
+
+.album {
+  text-align: left;
+  align-self: center;
+  width: 500px;
+}
+
+.duration {
+  width: 100px;
 }

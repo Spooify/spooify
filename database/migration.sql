@@ -1,37 +1,38 @@
 DROP TABLE IF EXISTS Tracks, Albums, Artists, Playlists;
 
 CREATE TABLE Artists(
-    id text PRIMARY KEY,
+    artist_id text PRIMARY KEY,
     artist_name text,
     followers int, 
     image text
 );
 
 CREATE TABLE Albums(
-    id text PRIMARY KEY,
+    album_id text PRIMARY KEY,
     album_name text,
     year_made int,
     song_amount int,
     total_duration int,
-    artist text REFERENCES Artists(id),
+    artist_id text REFERENCES Artists(artist_id),
     photo text
 );
 
 CREATE TABLE Tracks(
-    id text PRIMARY KEY,
+    track_id text PRIMARY KEY,
     name text,
     duration int,
-    album text REFERENCES Albums(id),
-    artist text REFERENCES Artists(id),
-    featured_artist text REFERENCES Artists(id)
+    album_id text REFERENCES Albums(album_id),
+    artist_id text REFERENCES Artists(artist_id),
+    featured_artist text REFERENCES Artists(artist_id)
 );
 
 CREATE TABLE Playlists(
-id text PRIMARY KEY,
+    playlist_key serial PRIMARY KEY,
+    playlist_id int,
     playlist_name text,
     username text,
     song_amount int,
     playlist_duration int,
-    song_id text REFERENCES Tracks(id),
+    track_id text REFERENCES Tracks(track_id),
     date_added int
 );
