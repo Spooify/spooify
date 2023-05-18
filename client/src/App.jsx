@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Login from "./Components/Login/Login.jsx";
 import Dashboard from "./Components/Dashboard/Dashboard";
-import "./Components/featuring/Featuring.jsx";
+import "./Components/Featuring/Featuring.jsx";
 
 const code = new URLSearchParams(window.location.search).get("code");
 
