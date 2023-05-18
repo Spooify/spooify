@@ -27,7 +27,8 @@ CREATE TABLE Tracks(
 );
 
 CREATE TABLE Playlists(
-playlist_id text PRIMARY KEY,
+    playlist_key serial PRIMARY KEY,
+    playlist_id int,
     playlist_name text,
     username text,
     song_amount int,
