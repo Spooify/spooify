@@ -5,7 +5,7 @@ import HeaderImage from "../HeaderImage/HeaderImage";
 // import Featuring from "../Featuring/Featuring.jsx";
 // import Discography from "../Discography/Discography";
 import Sidebar from "../sidebar/Sidebar.jsx";
-import FansLike from "../FansLike/FansLike";
+// import FansLike from "../FansLike/FansLike";
 import PlaylistPage from "../PlaylistPage/PlaylistPage";
 
 const Dashboard = (props) => {
@@ -69,6 +69,7 @@ const Dashboard = (props) => {
     }
   }, [artist]);
 
+
   return (
     <>
       {albums ? (
@@ -88,6 +89,7 @@ const Dashboard = (props) => {
             ) : (
               <>
                 <div>
+              //Add popular songs to the header_image with all other components
                   <HeaderImage
                     albums={albums}
                     artist={artist}
