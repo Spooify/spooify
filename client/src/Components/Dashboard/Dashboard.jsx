@@ -8,7 +8,6 @@ import Sidebar from "../sidebar/Sidebar.jsx";
 import FansLike from "../FansLike/FansLike";
 import PlaylistPage from "../PlaylistPage/PlaylistPage";
 
-
 const Dashboard = (props) => {
   const accessToken = useAuth(props.code);
   const [artist, setArtist] = useState();
@@ -62,7 +61,6 @@ const Dashboard = (props) => {
           const response = await fetch(url);
           const data = await response.json();
           setAlbums(data);
-          console.log(data);
         } catch (error) {
           console.log("error", error);
         }
@@ -76,33 +74,22 @@ const Dashboard = (props) => {
       {albums ? (
         <>
           <div className="main_body">
-
-            <Sidebar />
-            <div>
-              <HeaderImage albums={albums} artist={artist}/>
-            </div>
+            <Sidebar
+              setShowPlaylist={setShowPlaylist}
+              favoriteSongs={favoriteSongs}
+            />
             {showPlaylist ? (
               <>
-                <Sidebar
-                  setShowPlaylist={setShowPlaylist}
-                  favoriteSongs={favoriteSongs}
-                />
                 <div>
-                  <HeaderImage albums={albums} />
+                  {/* <HeaderImage albums={albums} /> */}
                   <PlaylistPage favoriteSongs={favoriteSongs} />
                 </div>
               </>
             ) : (
               <>
-                <Sidebar
-                  setShowPlaylist={setShowPlaylist}
-                  favoriteSongs={favoriteSongs}
-                />
                 <div>
-                  <HeaderImage albums={albums} />
-                  <Discography albums={albums}></Discography>
-                  <FansLike />
-                  <Featuring
+                  <HeaderImage
+                    albums={albums}
                     artist={artist}
                     favoriteSongs={favoriteSongs}
                     setFavChange={setFavChange}
@@ -112,7 +99,6 @@ const Dashboard = (props) => {
                 </div>
               </>
             )}
-
           </div>
           <Player
             accessToken={accessToken}
