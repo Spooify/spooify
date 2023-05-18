@@ -13,6 +13,7 @@ const Dashboard = (props) => {
   const [artist, setArtist] = useState();
   const [albums, setAlbums] = useState();
   const [showPlaylist, setShowPlaylist] = useState(false);
+  const [playingTrack, setPlayingTrack] = useState();
 
   useEffect(() => {
     const url = `http://localhost:4000/api/artists/0TnOYISbd1XYRBk9myaseg`;
@@ -39,6 +40,7 @@ const Dashboard = (props) => {
           const response = await fetch(url);
           const data = await response.json();
           setAlbums(data);
+          console.log(data);
         } catch (error) {
           console.log("error", error);
         }
@@ -67,12 +69,12 @@ const Dashboard = (props) => {
                   <HeaderImage albums={albums} />
                   <Discography albums={albums}></Discography>
                   <FansLike />
-                  <Featuring artist={artist} />
+                  <Featuring artist={artist} playingTrack={playingTrack} setPlayingTrack={setPlayingTrack} />
                 </div>
               </>
             )}
           </div>
-          <Player accessToken={accessToken} />
+          <Player accessToken={accessToken} playingTrack={playingTrack} setPlayingTrack={setPlayingTrack} />
         </>
       ) : (
         <></>

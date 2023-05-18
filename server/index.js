@@ -83,6 +83,19 @@ app.get("/api/tracks/:id", (req, res) => {
     });
 });
 
+//--- get all tracks from artist ---
+app.get("/api/artist/:id/tracks", (req, res) => {
+  console.log(req.params.id);
+  pool
+    .query(
+      "SELECT * FROM Tracks FULL JOIN Albums ON Tracks.album_id=Albums.album_id WHERE Tracks.artist_id=$1",
+      [req.params.id]
+    )
+    .then((result) => {
+      res.send(result.rows);
+    });
+});
+
 //--- get all featuring tracks from artist ---
 app.get("/api/featuring/:id", (req, res) => {
   pool

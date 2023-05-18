@@ -4,7 +4,7 @@ import playButton from "../../../assets/play-button.png";
 import favIcon from "../../../assets/fav-icon.png";
 import favIconFav from "../../../assets/fav-icon-favorite.png";
 
-const TrackCard = ({ track }) => {
+const TrackCard = ({ track, playingTrack, setPlayingTrack }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -17,7 +17,8 @@ const TrackCard = ({ track }) => {
   };
 
   const handleAlbumClick = () => {
-    console.log("clicked");
+    console.log(track.track_id);
+    setPlayingTrack(track.track_id);
   };
 
   const handlePlay = (e) => {
