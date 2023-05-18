@@ -24,10 +24,31 @@ const TrackCard = ({ track }) => {
     e.stopPropagation();
   };
 
-  const handleFavorite = (e) => {
+  const handleFavorite = async (e) => {
     e.stopPropagation();
+    let favorite = !isFavorite;
     setIsFavorite(!isFavorite);
     console.log("Favorite Clicked");
+    console.log(track);
+
+    if (favorite) {
+      console.log("adding favorite");
+
+      try {
+        await fetch(`http://localhost:4000/api/playlists/${track.track_id}/`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({ id: 1 }),
+        });
+      } catch (error) {
+        console.log("error", error);
+      }
+    } else {
+      console.log("deleting favorite");
+    }
   };
 
   return (

@@ -32,7 +32,7 @@ const Dashboard = (props) => {
 
   useEffect(() => {
     if (artist) {
-      const url = `http://localhost:4000/api/artists/${artist.id}/albums`;
+      const url = `http://localhost:4000/api/artists/${artist.artist_id}/albums`;
 
       const fetchData = async () => {
         try {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./PlaylistPage.module.css";
-import AlbumCard from "./AlbumCard/AlbumCard";
 
 const PlaylistPage = () => {
   const maxAlbums = 9;
