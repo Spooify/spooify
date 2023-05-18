@@ -1,0 +1,14 @@
+.disco-container {
+  padding-left: 15px;
+}
+
+.title {
+  text-align: left;
+  font-size: 19px;
+  color: white;
+}
+
+.disco-bar {
+  display: flex;
+  flex-direction: row;
+}

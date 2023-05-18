@@ -3,7 +3,7 @@ import playlistImage from "../../assets/playlist.png";
 
 // import spooify_white from "../sidebar/images/spooify_white.png"
 
-function Sidebar() {
+function Sidebar({ setShowPlaylist }) {
   const searchimgURL = new URL("./images/search_icon.png", import.meta.url);
   const homeimgURL = new URL("./images/home_icon.png", import.meta.url);
 
@@ -14,7 +14,12 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarItem">
-        <div className="home">
+        <div
+          className="home"
+          onClick={() => {
+            setShowPlaylist(false);
+          }}
+        >
           <img src={homeimgURL} alt="home" className="homeimg" />
           Home
         </div>
@@ -36,7 +41,12 @@ function Sidebar() {
           <button>Artists</button>
           <button>Albums</button>
         </div>
-        <div className="liked-songs" onClick={handlePlaylist}>
+        <div
+          className="liked-songs"
+          onClick={() => {
+            setShowPlaylist(true);
+          }}
+        >
           <img className="playlist-image" src={playlistImage}></img>
           <div className="playlist-details">
             <p className="playlist-title">Liked Songs</p>

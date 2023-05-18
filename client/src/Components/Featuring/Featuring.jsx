@@ -14,7 +14,6 @@ const Featuring = ({ artist }) => {
         const response = await fetch(url);
         const data = await response.json();
         setTracks(data);
-        console.log(data);
       } catch (error) {
         console.log("error", error);
       }
