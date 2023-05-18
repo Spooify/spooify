@@ -30,6 +30,52 @@
   border-radius: 5px;
 }
 
+.fav-icon {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 40px;
+  right: 5px;
+  top: 10px;
+  z-index: 5;
+  background-color: rgba(91, 144, 91, 0);
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fav-icon-favorite {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 40px;
+  right: 5px;
+  top: 10px;
+  z-index: 5;
+  background-color: rgb(17, 97, 17);
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fav-icon:hover {
+  width: 42px;
+  height: 42px;
+}
+
+.fav-icon-hidden {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 40px;
+  right: 5px;
+  top: 10px;
+  background-color: rgba(91, 144, 91, 0);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+
 .play-button {
   position: absolute;
   display: block;
