@@ -10,6 +10,7 @@ import FansLike from "../FansLike/FansLike";
 const Dashboard = (props) => {
   const accessToken = useAuth(props.code);
   const [artist, setArtist] = useState();
+  const [albums, setAlbums] = useState();
 
   useEffect(() => {
     const url = `http://localhost:4000/api/artists/0TnOYISbd1XYRBk9myaseg`;
@@ -27,18 +28,41 @@ const Dashboard = (props) => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (artist) {
+      const url = `http://localhost:4000/api/artists/${artist.id}/albums`;
+
+      const fetchData = async () => {
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          setAlbums(data);
+        } catch (error) {
+          console.log("error", error);
+        }
+      };
+      fetchData();
+    }
+  }, [artist]);
+
   return (
     <>
-      <div className="main_body">
-        <Sidebar />
-        <div>
-          <HeaderImage />
-          <Discography artist={artist ? artist : ""}></Discography>
-          <FansLike />
-          <Featuring artist={artist ? artist : ""} />
-        </div>
-      </div>
-      <Player accessToken={accessToken} />
+      {albums ? (
+        <>
+          <div className="main_body">
+            <Sidebar />
+            <div>
+              <HeaderImage albums={albums} />
+              <Discography albums={albums}></Discography>
+              <FansLike />
+              <Featuring artist={artist} />
+            </div>
+          </div>
+          <Player accessToken={accessToken} />
+        </>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

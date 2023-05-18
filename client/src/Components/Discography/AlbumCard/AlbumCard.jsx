@@ -17,6 +17,11 @@ const AlbumCard = ({ album }) => {
     console.log("clicked");
   };
 
+  const handlePlay = (e) => {
+    e.stopPropagation();
+    console.log("Play Clicked");
+  };
+
   return (
     <>
       <button
@@ -33,7 +38,11 @@ const AlbumCard = ({ album }) => {
             alt={album.album_name}
           ></img>
           {isHovering ? (
-            <img className={styles["play-button"]} src={playButton}></img>
+            <img
+              className={styles["play-button"]}
+              onClick={handlePlay}
+              src={playButton}
+            ></img>
           ) : (
             <img
               className={styles["play-button-hidden"]}

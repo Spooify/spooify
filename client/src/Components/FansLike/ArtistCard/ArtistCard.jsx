@@ -17,7 +17,8 @@ const ArtistCard = ({ artist }) => {
     console.log("Card clicked");
   };
 
-  const handlePlay = () => {
+  const handlePlay = (e) => {
+    e.stopPropagation();
     console.log("Play Clicked");
   };
 
