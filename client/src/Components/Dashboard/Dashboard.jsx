@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import useAuth from "./useAuth";
 import Player from "../Player/Player";
 import HeaderImage from "../HeaderImage/HeaderImage";
-import Featuring from "../Featuring/Featuring.jsx";
-import Discography from "../Discography/Discography";
+// import Featuring from "../Featuring/Featuring.jsx";
+// import Discography from "../Discography/Discography";
 import Sidebar from "../sidebar/Sidebar.jsx";
 import FansLike from "../FansLike/FansLike";
 import PlaylistPage from "../PlaylistPage/PlaylistPage";
+
 
 const Dashboard = (props) => {
   const accessToken = useAuth(props.code);
@@ -75,6 +76,11 @@ const Dashboard = (props) => {
       {albums ? (
         <>
           <div className="main_body">
+
+            <Sidebar />
+            <div>
+              <HeaderImage albums={albums} artist={artist}/>
+            </div>
             {showPlaylist ? (
               <>
                 <Sidebar
@@ -106,6 +112,7 @@ const Dashboard = (props) => {
                 </div>
               </>
             )}
+
           </div>
           <Player
             accessToken={accessToken}

@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
+import Featuring from "../Featuring/Featuring.jsx";
+import Discography from "../Discography/Discography";
+import FansLike from "../FansLike/FansLike";
+
 import "./HeaderImage.css";
 
-const HeaderImage = ({ albums }) => {
+const HeaderImage = ({ albums, artist }) => {
+  // const [artist, setArtist] = useState()
   // const [albums_data, setAlbums_data] = useState([]);
+
+
+
 
   // useEffect(() => {
   //   const url = 'http://localhost:4000/api/artists/0TnOYISbd1XYRBk9myaseg/albums';
@@ -24,8 +32,15 @@ const HeaderImage = ({ albums }) => {
   // }, []);
 
   return (
-    <div>
-      <img src={albums[1].photo} alt="" />
+    <div >
+      <div className="parallax" style={{backgroundImage:`url(${albums[0].photo})`}}>
+        </div>
+      <div className="cards" >
+      <div className="artist_name"> {artist.artist_name}</div> 
+          <Discography albums={albums}></Discography>
+          <FansLike />
+          <Featuring artist={artist} /> 
+      </div>
     </div>
   );
 };

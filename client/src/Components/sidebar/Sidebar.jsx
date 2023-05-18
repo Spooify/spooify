@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import playlistImage from "../../assets/playlist.png";
 
+
 // import spooify_white from "../sidebar/images/spooify_white.png"
 
 function Sidebar({ setShowPlaylist, favoriteSongs }) {
