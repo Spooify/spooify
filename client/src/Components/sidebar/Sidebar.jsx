@@ -1,9 +1,11 @@
+import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import playlistImage from "../../assets/playlist.png";
 
 // import spooify_white from "../sidebar/images/spooify_white.png"
 
-function Sidebar({ setShowPlaylist }) {
+function Sidebar({ setShowPlaylist, favoriteSongs }) {
+  console.log(favoriteSongs ? favoriteSongs : "");
   const searchimgURL = new URL("./images/search_icon.png", import.meta.url);
   const homeimgURL = new URL("./images/home_icon.png", import.meta.url);
 
@@ -50,7 +52,11 @@ function Sidebar({ setShowPlaylist }) {
           <img className="playlist-image" src={playlistImage}></img>
           <div className="playlist-details">
             <p className="playlist-title">Liked Songs</p>
-            <p className="playlist-detail">Playist • Songs</p>
+            {favoriteSongs ? (
+              <p className="playlist-detail">{`Playist • ${favoriteSongs.length} Songs`}</p>
+            ) : (
+              <p className="playlist-detail">{`Playist • 0 Songs`}</p>
+            )}
           </div>
         </div>
       </div>

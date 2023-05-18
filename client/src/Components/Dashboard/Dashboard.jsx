@@ -13,6 +13,27 @@ const Dashboard = (props) => {
   const [artist, setArtist] = useState();
   const [albums, setAlbums] = useState();
   const [showPlaylist, setShowPlaylist] = useState(false);
+  const [favoriteSongs, setFavoriteSongs] = useState([]);
+
+  useEffect(() => {
+    const url = `http://localhost:4000/api/playlists/1`;
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        let tracks = [];
+        for (let i = 0; i < data.length; i++) {
+          tracks.push(data[i].track_id);
+          console.log(data[i].track_id);
+        }
+        setFavoriteSongs(tracks);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const url = `http://localhost:4000/api/artists/0TnOYISbd1XYRBk9myaseg`;
@@ -21,7 +42,6 @@ const Dashboard = (props) => {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        // console.log(data);
         setArtist(data[0]);
       } catch (error) {
         console.log("error", error);
@@ -32,6 +52,7 @@ const Dashboard = (props) => {
 
   useEffect(() => {
     if (artist) {
+      console.log(favoriteSongs);
       const url = `http://localhost:4000/api/artists/${artist.artist_id}/albums`;
 
       const fetchData = async () => {
@@ -54,20 +75,26 @@ const Dashboard = (props) => {
           <div className="main_body">
             {showPlaylist ? (
               <>
-                <Sidebar setShowPlaylist={setShowPlaylist} />
-                <PlaylistPage />
+                <Sidebar
+                  setShowPlaylist={setShowPlaylist}
+                  favoriteSongs={favoriteSongs}
+                />
+                <PlaylistPage favoriteSongs={favoriteSongs} />
                 <div>
                   <HeaderImage albums={albums} />
                 </div>
               </>
             ) : (
               <>
-                <Sidebar setShowPlaylist={setShowPlaylist} />
+                <Sidebar
+                  setShowPlaylist={setShowPlaylist}
+                  favoriteSongs={favoriteSongs}
+                />
                 <div>
                   <HeaderImage albums={albums} />
                   <Discography albums={albums}></Discography>
                   <FansLike />
-                  <Featuring artist={artist} />
+                  <Featuring artist={artist} favoriteSongs={favoriteSongs} />
                 </div>
               </>
             )}

@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./TrackCard.module.css";
 import playButton from "../../../assets/play-button.png";
 import favIcon from "../../../assets/fav-icon.png";
 import favIconFav from "../../../assets/fav-icon-favorite.png";
 
-const TrackCard = ({ track }) => {
+const TrackCard = ({ track, favoriteSongs }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    favoriteSongs.includes(track.track_id)
+      ? setIsFavorite(true)
+      : setIsFavorite(false);
+  }, []);
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -41,13 +47,24 @@ const TrackCard = ({ track }) => {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
           },
-          body: JSON.stringify({ id: 1 }),
+          body: JSON.stringify({ playlist_id: 1 }),
         });
       } catch (error) {
         console.log("error", error);
       }
     } else {
       console.log("deleting favorite");
+      try {
+        await fetch(`http://localhost:4000/api/playlists/1/${track.track_id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        });
+      } catch (error) {
+        console.log("error", error);
+      }
     }
   };
 
