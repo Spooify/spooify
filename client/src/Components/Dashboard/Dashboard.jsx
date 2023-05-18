@@ -5,12 +5,38 @@ import HeaderImage from "../HeaderImage/HeaderImage";
 // import Featuring from "../Featuring/Featuring.jsx";
 // import Discography from "../Discography/Discography";
 import Sidebar from "../sidebar/Sidebar.jsx";
-// import FansLike from "../FansLike/FansLike";
+import FansLike from "../FansLike/FansLike";
+import PlaylistPage from "../PlaylistPage/PlaylistPage";
+
 
 const Dashboard = (props) => {
   const accessToken = useAuth(props.code);
   const [artist, setArtist] = useState();
   const [albums, setAlbums] = useState();
+  const [showPlaylist, setShowPlaylist] = useState(false);
+  const [playingTrack, setPlayingTrack] = useState();
+  const [favoriteSongs, setFavoriteSongs] = useState([]);
+  const [favChange, setFavChange] = useState(false);
+
+  useEffect(() => {
+    const url = `http://localhost:4000/api/playlists/1`;
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        let tracks = [];
+        for (let i = 0; i < data.length; i++) {
+          tracks.push(data[i].track_id);
+        }
+        setFavoriteSongs(tracks);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchData();
+    setFavChange(false);
+  }, [favChange]);
 
   useEffect(() => {
     const url = `http://localhost:4000/api/artists/0TnOYISbd1XYRBk9myaseg`;
@@ -19,7 +45,6 @@ const Dashboard = (props) => {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        // console.log(data);
         setArtist(data[0]);
       } catch (error) {
         console.log("error", error);
@@ -30,13 +55,14 @@ const Dashboard = (props) => {
 
   useEffect(() => {
     if (artist) {
-      const url = `http://localhost:4000/api/artists/${artist.id}/albums`;
+      const url = `http://localhost:4000/api/artists/${artist.artist_id}/albums`;
 
       const fetchData = async () => {
         try {
           const response = await fetch(url);
           const data = await response.json();
           setAlbums(data);
+          console.log(data);
         } catch (error) {
           console.log("error", error);
         }
@@ -50,15 +76,49 @@ const Dashboard = (props) => {
       {albums ? (
         <>
           <div className="main_body">
+
             <Sidebar />
             <div>
               <HeaderImage albums={albums} artist={artist}/>
-              {/* <Discography albums={albums}></Discography>
-              <FansLike />
-              <Featuring artist={artist} /> */}
             </div>
+            {showPlaylist ? (
+              <>
+                <Sidebar
+                  setShowPlaylist={setShowPlaylist}
+                  favoriteSongs={favoriteSongs}
+                />
+                <div>
+                  <HeaderImage albums={albums} />
+                  <PlaylistPage favoriteSongs={favoriteSongs} />
+                </div>
+              </>
+            ) : (
+              <>
+                <Sidebar
+                  setShowPlaylist={setShowPlaylist}
+                  favoriteSongs={favoriteSongs}
+                />
+                <div>
+                  <HeaderImage albums={albums} />
+                  <Discography albums={albums}></Discography>
+                  <FansLike />
+                  <Featuring
+                    artist={artist}
+                    favoriteSongs={favoriteSongs}
+                    setFavChange={setFavChange}
+                    playingTrack={playingTrack}
+                    setPlayingTrack={setPlayingTrack}
+                  />
+                </div>
+              </>
+            )}
+
           </div>
-          <Player accessToken={accessToken} />
+          <Player
+            accessToken={accessToken}
+            playingTrack={playingTrack}
+            setPlayingTrack={setPlayingTrack}
+          />
         </>
       ) : (
         <></>

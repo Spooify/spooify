@@ -9,7 +9,7 @@ GET https://api.spotify.com/v1/artists/3fMbdgg4jU18AjLCKBhRSm
 Authorization: Bearer BQCgbo7WqMfr2EUigTlecWLgnXB9WLw5BW9x8GaOJPPo31TNq7GILNumxT3SkcqP-cpht5XP4F02eZv_cFqUVzd73TvZHpBVX-_TWyKqKlT4LHlC1o9G
 ### get artist top tracks
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/top-tracks?market=us
-Authorization: Bearer BQA3WGQWli-yg4gqLYf4D4fX7wTTt7fGCLeNwvDp7JrB2BfC4c8MGRIdYEowJCzaGBqOAbaTpYxEERiSXWJKOhz1KwC0Ln1JBoTAugRt_z6aWyXdRXhQ
+Authorization: Bearer BQDGxwkfhDOep_4_D5hHmw8peFOs2soWTivDywSaN7ca8PD-s7U2EyANjLD3IpFfdyq9PE0DCYcF4E47XTj0TdxI96-Byutcbwc8hPSG7-LWtgZ4s5vL
 
 ###get artist albums
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=album%2Csingle&market=us
@@ -35,3 +35,8 @@ Authorization: Bearer BQDVI0-asnGciPNdme6763JAxyQIinryEaADr172BPonu3sXMoLlBgwo-Y
 GET https://api.spotify.com/v1/tracks/1PCvKFPWnTXAe2oaReVUcr?market=us
 Authorization: Bearer BQA3WGQWli-yg4gqLYf4D4fX7wTTt7fGCLeNwvDp7JrB2BfC4c8MGRIdYEowJCzaGBqOAbaTpYxEERiSXWJKOhz1KwC0Ln1JBoTAugRt_z6aWyXdRXhQ
 
+### Get all tracks from singualar Artist
+GET http://localhost:4000/api/artist/0TnOYISbd1XYRBk9myaseg/tracks
+
+### Get all featuring tracks from artist
+GET http://localhost:4000/api/featuring/0TnOYISbd1XYRBk9myaseg
