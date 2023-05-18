@@ -58,7 +58,7 @@ app.get("/", (req, res) => {
 //--- get singular artist ---
 app.get("/api/artists/:id", (req, res) => {
   pool
-    .query("SELECT * FROM artists WHERE id=$1", [req.params.id])
+    .query("SELECT * FROM artists WHERE artist_id=$1", [req.params.id])
     .then((result) => {
       res.send(result.rows);
     });
@@ -75,7 +75,7 @@ app.get("/api/artists/", (req, res) => {
 app.get("/api/tracks/:id", (req, res) => {
   pool
     .query(
-      "SELECT * FROM Tracks JOIN Albums ON Tracks.album=Albums.id WHERE Tracks.id=$1",
+      "SELECT * FROM Tracks JOIN Albums ON Tracks.album_id=Albums.album_id WHERE Tracks.track_id=$1",
       [req.params.id]
     )
     .then((result) => {
@@ -87,7 +87,7 @@ app.get("/api/tracks/:id", (req, res) => {
 app.get("/api/featuring/:id", (req, res) => {
   pool
     .query(
-      "SELECT * FROM Tracks FULL JOIN Albums ON Tracks.album=Albums.id WHERE Tracks.featured_artist=$1",
+      "SELECT * FROM Tracks FULL JOIN Albums ON Tracks.album_id=Albums.album_id WHERE Tracks.featured_artist=$1",
       [req.params.id]
     )
     .then((result) => {
@@ -98,7 +98,7 @@ app.get("/api/featuring/:id", (req, res) => {
 //--- get singular album ---
 app.get("/api/albums/:id", (req, res) => {
   pool
-    .query("SELECT * FROM albums WHERE id=$1", [req.params.id])
+    .query("SELECT * FROM albums WHERE album_id=$1", [req.params.id])
     .then((result) => {
       res.send(result.rows);
     });
@@ -107,7 +107,7 @@ app.get("/api/albums/:id", (req, res) => {
 //--- get all albums of singular artist ---
 app.get("/api/artists/:id/albums", (req, res) => {
   pool
-    .query("SELECT * FROM albums WHERE artist=$1", [req.params.id])
+    .query("SELECT * FROM albums WHERE artist_id=$1", [req.params.id])
     .then((result) => {
       res.send(result.rows);
     });
@@ -123,7 +123,7 @@ app.get("/api/playlists", (req, res) => {
 //--- get singular playlist ---
 app.get("/api/playlists/:id", (req, res) => {
   pool
-    .query("SELECT * FROM playlists WHERE id=$1", [req.params.id])
+    .query("SELECT * FROM playlists WHERE playlist_id=$1", [req.params.id])
     .then((result) => {
       res.send(result.rows);
     });
@@ -132,7 +132,7 @@ app.get("/api/playlists/:id", (req, res) => {
 //--- add track to playlist ---
 app.post("/api/playlists/:id/tracks", (req, res) => {
   pool
-    .query("INSERT INTO tracks (track_id, playlist_id) VALUES ($1, $2)", [
+    .query("INSERT INTO playlist(track_id, playlist_id) VALUES ($1, $2)", [
       req.body.track_id,
       req.params.id,
     ])
