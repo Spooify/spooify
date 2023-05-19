@@ -10,15 +10,16 @@
 }
 
 .number {
-  width: 100px;
+  width: 50px;
+  padding-left: 15px;
 }
 
 .title {
-  width: 700px;
+  width: 750px;
 }
 
 .album {
-  width: 500px;
+  width: 550px;
 }
 
 .duration {
