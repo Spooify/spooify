@@ -45,7 +45,7 @@ const HeaderImage = ({
       ></div>
       <div className="cards">
         <div className="artist_name"> {artist.artist_name}</div>
-        <PopularSongs albums={albums} />
+        <PopularSongs albums={albums} artist={artist}  />
         <Discography albums={albums}></Discography>
         <FansLike />
         <Featuring
