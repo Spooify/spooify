@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./PopularSongs.css";
+import PopSongCard from "./PopSongCard/PopSongCard.jsx";
+import styles from "./PopularSongs.module.css";
 
 const PopularSongs = ({albums}) => {
     const[topTracks, setTopTracks] = useState();
@@ -22,14 +23,8 @@ const PopularSongs = ({albums}) => {
   
 
     return (
-  <div className="popular_songs">Popular
-    <div className="song_card">
-        <div className="list_number">1</div>
-        <div className="album_image">Album Image</div>
-        <div className="song_name">Name: Hello, It's me</div>
-        <div className="times_played">Played: 1,500,324</div>
-        <div className="song_duration">Duration: 3:00</div>
-    </div>
+  <div className="popular_songs">
+  <PopSongCard /> 
   </div>
   );
 };
