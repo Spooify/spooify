@@ -9,6 +9,7 @@
     background-size: 100vw 135vh;
     /* background-position: 70% 50%; */
     background-position: -1059% 125%;
+    /* margin-top: 10px; */
 }
 
 .cards{
@@ -29,5 +30,17 @@
     color: white;
     margin-left: 10px;
     background-color: rgb(24, 25, 25);
+    
 }
 
+
+.Artist_container{
+    overflow-y: scroll;
+    overscroll-behavior-y: hidden;
+    height: 93vh;
+    /* border: 1px solid white; */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}

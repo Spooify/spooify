@@ -57,12 +57,11 @@ button:hover {
 .playlist {
   /* display: flex;
     flex-direction: column; */
-
   background-color: rgb(24, 25, 25);
   padding: 10px 20px;
   /* border: 1px solid #ffffff; */
   border-radius: 10px;
-  height: 100%;
+  height: 83vh;
   /* margin: 6px 2px 2px 2px; */
   color: #a9a5a5;
 }
@@ -92,6 +91,7 @@ button:hover {
 
 .searchimg {
   margin-right: 15%;
+  margin-left: 2%;
   padding-top: 5;
   width: 25px;
   height: 25px;
@@ -105,8 +105,9 @@ button:hover {
   width: 15vw;
   background-color: #000000;
   color: #ffffff;
-  padding: 3px;
-  margin-top: -4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  /* margin-top: -4px; */
   margin-right:4px;
   margin-left:-5px;
   overflow-y: auto hidden; /* Enable vertical scrolling if needed */
@@ -120,18 +121,6 @@ button:hover {
   margin: 2px 2px 6px 2px;
   background-color: rgb(24, 25, 25);
 }
-
-/* .spooify{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: x-large;
-    margin-top: 7px;
-    margin-bottom: 10px;
-}
-
-.spooifyimg{
-    margin-right: 10px;
-} */
 
 .userList {
   display: flex;
