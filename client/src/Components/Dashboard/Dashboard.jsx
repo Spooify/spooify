@@ -16,6 +16,7 @@ const Dashboard = (props) => {
   const [playingTrack, setPlayingTrack] = useState();
   const [favoriteSongs, setFavoriteSongs] = useState([]);
   const [favChange, setFavChange] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const url = `http://localhost:4000/api/playlists/1`;
@@ -86,6 +87,10 @@ const Dashboard = (props) => {
                   <PlaylistPage
                     favoriteSongs={favoriteSongs}
                     setFavChange={setFavChange}
+                    playingTrack={playingTrack}
+                    setPlayingTrack={setPlayingTrack}
+                    playing={playing}
+                    setPlaying={setPlaying}
                   />
                 </div>
               </>
@@ -101,6 +106,8 @@ const Dashboard = (props) => {
                     setFavChange={setFavChange}
                     playingTrack={playingTrack}
                     setPlayingTrack={setPlayingTrack}
+                    playing={playing}
+                    setPlaying={setPlaying}
                   />
                 </div>
               </>
@@ -110,6 +117,8 @@ const Dashboard = (props) => {
             accessToken={accessToken}
             playingTrack={playingTrack}
             setPlayingTrack={setPlayingTrack}
+            playing={playing}
+            setPlaying={setPlaying}
           />
         </>
       ) : (

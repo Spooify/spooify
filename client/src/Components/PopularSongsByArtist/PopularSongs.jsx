@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import PopSongCard from "./PopSongCard/PopSongCard.jsx";
 import styles from "./PopularSongs.module.css";
 
-const PopularSongs = ({ albums, artist }) => {
+const PopularSongs = ({
+  albums,
+  artist,
+  playingTrack,
+  setPlayingTrack,
+  playing,
+  setPlaying,
+}) => {
   const [popularTrack, setPopularTrack] = useState([]);
 
   useEffect(() => {
@@ -25,7 +32,15 @@ const PopularSongs = ({ albums, artist }) => {
     <div className="popular_songs">
       <h2>Popular</h2>
       {popularTrack.map((song) => (
-        <PopSongCard song={song} albums={albums} artist={artist} />
+        <PopSongCard
+          song={song}
+          albums={albums}
+          artist={artist}
+          playingTrack={playingTrack}
+          setPlayingTrack={setPlayingTrack}
+          playing={playing}
+          setPlaying={setPlaying}
+        />
       ))}
     </div>
   );

@@ -10,6 +10,8 @@ const TrackCard = ({
   setFavChange,
   playingTrack,
   setPlayingTrack,
+  playing,
+  setPlaying,
 }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -26,13 +28,13 @@ const TrackCard = ({
     setIsHovering(false);
   };
 
-  const handleAlbumClick = () => {
-    console.log(track.track_id);
-    setPlayingTrack(track.track_id);
-  };
+  const handleAlbumClick = () => {};
 
   const handlePlay = (e) => {
     e.stopPropagation();
+    console.log(track.track_id);
+    setPlayingTrack(track.track_id);
+    setPlaying(!playing);
   };
 
   const handleFavorite = async (e) => {

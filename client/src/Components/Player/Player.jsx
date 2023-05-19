@@ -1,12 +1,17 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import SpotifyPlayer from "react-spotify-web-playback";
 import "./Player.css";
 
-const Player = ({ accessToken, playingTrack, setPlayingTrack }) => {
-  const [play, setPlay] = useState(false);
-  const URI = `spotify:track:${playingTrack}`
+const Player = ({
+  accessToken,
+  playingTrack,
+  setPlayingTrack,
+  playing,
+  setPlaying,
+}) => {
+  const URI = `spotify:track:${playingTrack}`;
 
-  useEffect(() => setPlay(true), [playingTrack]);
+  useEffect(() => setPlaying(true), [playingTrack]);
 
   if (!accessToken) return null;
   return (
@@ -14,7 +19,9 @@ const Player = ({ accessToken, playingTrack, setPlayingTrack }) => {
       <SpotifyPlayer
         className="player"
         token={accessToken}
-        callback={state => {if (!state.isPlaying) setPlay(false)}}       
+        callback={(state) => {
+          if (!state.isPlaying) setPlaying(false);
+        }}
         styles={{
           activeColor: "#fff",
           bgColor: "#000",
@@ -24,9 +31,8 @@ const Player = ({ accessToken, playingTrack, setPlayingTrack }) => {
           trackArtistColor: "#ccc",
           trackNameColor: "#fff",
         }}
-        uris={playingTrack? [URI] : []}
-        play={play}
-
+        uris={playingTrack ? [URI] : []}
+        play={playing}
       />
     </div>
   );

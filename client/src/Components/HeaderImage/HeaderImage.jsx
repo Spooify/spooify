@@ -13,6 +13,8 @@ const HeaderImage = ({
   setFavChange,
   playingTrack,
   setPlayingTrack,
+  playing,
+  setPlaying,
 }) => {
   console.log(artist);
   // const [artist, setArtist] = useState()
@@ -45,7 +47,14 @@ const HeaderImage = ({
       ></div>
       <div className="cards">
         <div className="artist_name"> {artist.artist_name}</div>
-        <PopularSongs albums={albums} artist={artist}  />
+        <PopularSongs
+          albums={albums}
+          artist={artist}
+          playingTrack={playingTrack}
+          setPlayingTrack={setPlayingTrack}
+          playing={playing}
+          setPlaying={setPlaying}
+        />
         <Discography albums={albums}></Discography>
         <FansLike />
         <Featuring
@@ -54,6 +63,8 @@ const HeaderImage = ({
           setFavChange={setFavChange}
           playingTrack={playingTrack}
           setPlayingTrack={setPlayingTrack}
+          playing={playing}
+          setPlaying={setPlaying}
         />
       </div>
     </div>

@@ -3,7 +3,7 @@ import FavTrackCard from "./FavTrackCard/FavTrackCard";
 import playlistImage from "../../assets/playlist.png";
 import styles from "./PlaylistPage.module.css";
 
-const PlaylistPage = ({ favoriteSongs, setFavChange }) => {
+const PlaylistPage = ({ favoriteSongs, setFavChange, playingTrack, setPlayingTrack, playing, setPlaying }) => {
   let trackNum = 1;
   return (
     <>
@@ -34,6 +34,10 @@ const PlaylistPage = ({ favoriteSongs, setFavChange }) => {
               favoriteSong={favoriteSong}
               setFavChange={setFavChange}
               trackNum={trackNum++}
+              playingTrack={playingTrack}
+              setPlayingTrack={setPlayingTrack}
+              playing={playing}
+              setPlaying={setPlaying}
             ></FavTrackCard>
           ))
         ) : (

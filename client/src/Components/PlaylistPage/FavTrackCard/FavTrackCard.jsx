@@ -3,7 +3,7 @@ import styles from "./FavTrackCard.module.css";
 import playButton from "../../../assets/play-triangle.png";
 import favIconFav from "../../../assets/fav-icon-favorite.png";
 
-const FavTrackCard = ({ favoriteSong, setFavChange, trackNum }) => {
+const FavTrackCard = ({ favoriteSong, setFavChange, trackNum, playingTrack, setPlayingTrack, playing, setPlaying }) => {
   const [favTrack, setFavTrack] = useState();
   const [isHovering, setIsHovering] = useState(false);
 
@@ -31,7 +31,9 @@ const FavTrackCard = ({ favoriteSong, setFavChange, trackNum }) => {
 
   const handlePlay = (e) => {
     e.stopPropagation();
-    console.log("play clicked");
+    console.log(favTrack.track_id);
+    setPlayingTrack(favTrack.track_id);
+    setPlaying(!playing);
   };
 
   const handleFavorite = async (e) => {
