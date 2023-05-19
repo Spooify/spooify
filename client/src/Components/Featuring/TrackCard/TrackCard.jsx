@@ -4,14 +4,18 @@ import playButton from "../../../assets/play-button.png";
 import favIcon from "../../../assets/fav-icon.png";
 import favIconFav from "../../../assets/fav-icon-favorite.png";
 
-const TrackCard = ({ track, favoriteSongs, setFavChange, playingTrack, setPlayingTrack }) => {
+const TrackCard = ({
+  track,
+  favoriteSongs,
+  setFavChange,
+  playingTrack,
+  setPlayingTrack,
+}) => {
   const [isHovering, setIsHovering] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    favoriteSongs.includes(track.track_id)
-      ? setIsFavorite(true)
-      : setIsFavorite(false);
+    if (favoriteSongs.includes(track.track_id)) setIsFavorite(true);
   }, []);
 
   const handleMouseOver = () => {
@@ -33,7 +37,6 @@ const TrackCard = ({ track, favoriteSongs, setFavChange, playingTrack, setPlayin
 
   const handleFavorite = async (e) => {
     e.stopPropagation();
-    setFavChange(true);
     let favorite = !isFavorite;
     setIsFavorite(!isFavorite);
     console.log("Favorite Clicked");
@@ -64,6 +67,7 @@ const TrackCard = ({ track, favoriteSongs, setFavChange, playingTrack, setPlayin
         console.log("error", error);
       }
     }
+    setFavChange(true);
   };
 
   return (

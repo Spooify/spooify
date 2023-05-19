@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import FavTrackCard from "./FavTrackCard/FavTrackCard";
 import styles from "./PlaylistPage.module.css";
 
-const PlaylistPage = ({ favoriteSongs }) => {
-  const maxAlbums = 9;
-
+const PlaylistPage = ({ favoriteSongs, setFavChange }) => {
+  let trackNum = 1;
   return (
     <section className={styles["playlist-container"]}>
       <h2 className={styles.title}>Playlist</h2>
@@ -18,8 +17,10 @@ const PlaylistPage = ({ favoriteSongs }) => {
       {favoriteSongs[0] ? (
         favoriteSongs.map((favoriteSong) => (
           <FavTrackCard
-            key={favoriteSong.track_id}
+            key={favoriteSong}
             favoriteSong={favoriteSong}
+            setFavChange={setFavChange}
+            trackNum={trackNum++}
           ></FavTrackCard>
         ))
       ) : (

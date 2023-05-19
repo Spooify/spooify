@@ -69,7 +69,6 @@ const Dashboard = (props) => {
     }
   }, [artist]);
 
-
   return (
     <>
       {albums ? (
@@ -83,13 +82,18 @@ const Dashboard = (props) => {
               <>
                 <div>
                   {/* <HeaderImage albums={albums} /> */}
-                  <PlaylistPage favoriteSongs={favoriteSongs} />
+                  <PlaylistPage
+                    favoriteSongs={favoriteSongs}
+                    setFavChange={setFavChange}
+                  />
                 </div>
               </>
             ) : (
               <>
                 <div>
+
               {/* //Add popular songs to the header_image with all other components */}
+ 
                   <HeaderImage
                     albums={albums}
                     artist={artist}
