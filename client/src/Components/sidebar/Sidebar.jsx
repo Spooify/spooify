@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import playlistImage from "../../assets/playlist.png";
 
-
 // import spooify_white from "../sidebar/images/spooify_white.png"
 
-function Sidebar({ setShowPlaylist, favoriteSongs }) {
+function Sidebar({ setShowPlaylist, favoriteSongs, showPlaylist }) {
   const searchimgURL = new URL("./images/search_icon.png", import.meta.url);
   const homeimgURL = new URL("./images/home_icon.png", import.meta.url);
+  const homeimghomeURL = new URL(
+    "./images/home_icon_home.png",
+    import.meta.url
+  );
 
   const handlePlaylist = () => {
     console.log("clicked playlist");
@@ -22,7 +25,11 @@ function Sidebar({ setShowPlaylist, favoriteSongs }) {
             setShowPlaylist(false);
           }}
         >
-          <img src={homeimgURL} alt="home" className="homeimg" />
+          <img
+            src={showPlaylist ? homeimgURL : homeimghomeURL}
+            alt="home"
+            className="homeimg"
+          />
           Home
         </div>
         <div className="search">
