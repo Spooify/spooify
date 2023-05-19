@@ -1,18 +1,24 @@
 .playlist-container {
   padding-left: 15px;
   background-color: rgb(24, 25, 25);
-  width: 139%;
+  width: 83vw;
+  height: 53vh;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-top: 15px;
 }
 
 .header {
   display: flex;
   height: 500px;
-  width: 140%;
+  /* width: 85vw; */
   background: linear-gradient(
     45deg,
     rgb(90, 45, 180) 100%,
     rgb(106, 46, 184) 0%
   );
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .header-container {
