@@ -10,7 +10,7 @@
 body {
   display: flex;
   place-items: center;
-  min-width: vw;
+  min-width: 93vw;
   min-height: 100vh;
   background-color: black;
   
