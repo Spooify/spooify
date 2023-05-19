@@ -52,50 +52,49 @@ const FavTrackCard = ({ favoriteSong, setFavChange, trackNum }) => {
     }
     setFavChange(true);
   };
+  let minutes = 0;
+  let seconds = 0;
 
+  if (favTrack) {
+    minutes = Math.floor(favTrack.duration / 60000);
+    seconds = Math.floor(favTrack.duration / 1000 - minutes * 60);
+  }
   return (
     <>
       {favTrack ? (
-        <>
-          <div
-            className={styles["fav-card"]}
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
-            {isHovering ? (
-              <div className={styles["play-container"]}>
-                <img
-                  className={styles["play-button"]}
-                  src={playButton}
-                  onClick={handlePlay}
-                ></img>
-              </div>
-            ) : (
-              <span className={styles.number}>{trackNum}</span>
-            )}
-            <img
-              className={styles["track-image"]}
-              src={favTrack.photo}
-              alt={favTrack.album_name}
-            ></img>
-            <div className={styles["title-container"]}>
-              <p className={styles.title}>{favTrack.name}</p>
-              <p className={styles.artist}>{favTrack.artist_name}</p>
+        <div
+          className={styles["fav-card"]}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          {isHovering ? (
+            <div className={styles["play-container"]}>
+              <img
+                className={styles["play-button"]}
+                src={playButton}
+                onClick={handlePlay}
+              ></img>
             </div>
-            <p className={styles.album}>{favTrack.album_name}</p>
-            <img
-              className={styles["fav-icon"]}
-              onClick={handleFavorite}
-              src={favIconFav}
-            ></img>
-            <p className={styles.duration}>{`${Math.floor(
-              favTrack.duration / 60000
-            )}:${Math.floor(favTrack.duration % 60).toLocaleString("en-US", {
-              minimumIntegerDigits: 2,
-              useGrouping: false,
-            })}`}</p>
+          ) : (
+            <span className={styles.number}>{trackNum}</span>
+          )}
+          <img
+            className={styles["track-image"]}
+            src={favTrack.photo}
+            alt={favTrack.album_name}
+          ></img>
+          <div className={styles["title-container"]}>
+            <p className={styles.title}>{favTrack.name}</p>
+            <p className={styles.artist}>{favTrack.artist_name}</p>
           </div>
-        </>
+          <p className={styles.album}>{favTrack.album_name}</p>
+          <img
+            className={styles["fav-icon"]}
+            onClick={handleFavorite}
+            src={favIconFav}
+          ></img>
+          <p className={styles.duration}>{`${minutes}:${seconds}`}</p>
+        </div>
       ) : (
         <></>
       )}
