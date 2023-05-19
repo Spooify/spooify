@@ -84,8 +84,10 @@ button:hover {
 .search:hover {
   color: #ffffff;
   cursor: pointer;
-
   opacity: 100%;
+  .searchimg {
+    opacity: 100%;
+  }
 }
 
 .searchimg {
@@ -100,10 +102,13 @@ button:hover {
   position: sticky;
   top: 0;
   height: 100vh; /* Adjust the height as needed */
-  width: 35%;
+  width: 15vw;
   background-color: #000000;
   color: #ffffff;
-  padding: 4px;
+  padding: 3px;
+  margin-top: -4px;
+  margin-right:4px;
+  margin-left:-5px;
   overflow-y: auto hidden; /* Enable vertical scrolling if needed */
 }
 

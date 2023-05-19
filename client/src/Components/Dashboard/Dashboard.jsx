@@ -89,7 +89,7 @@ const Dashboard = (props) => {
             ) : (
               <>
                 <div>
-              //Add popular songs to the header_image with all other components
+              {/* //Add popular songs to the header_image with all other components */}
                   <HeaderImage
                     albums={albums}
                     artist={artist}
