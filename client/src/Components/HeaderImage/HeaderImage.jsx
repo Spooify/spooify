@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Featuring from "../Featuring/Featuring.jsx";
 import Discography from "../Discography/Discography";
 import FansLike from "../FansLike/FansLike";
+import PopularSongs from "../PopularSongsByArtist/PopularSongs.jsx";
 
 import "./HeaderImage.css";
 
@@ -44,6 +45,7 @@ const HeaderImage = ({
       ></div>
       <div className="cards">
         <div className="artist_name"> {artist.artist_name}</div>
+        <PopularSongs albums={albums} />
         <Discography albums={albums}></Discography>
         <FansLike />
         <Featuring
