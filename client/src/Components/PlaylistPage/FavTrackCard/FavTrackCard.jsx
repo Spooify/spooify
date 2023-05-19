@@ -90,7 +90,10 @@ const FavTrackCard = ({ favoriteSong, setFavChange, trackNum }) => {
             ></img>
             <p className={styles.duration}>{`${Math.floor(
               favTrack.duration / 60000
-            )}:${Math.floor(favTrack.duration % 60)}`}</p>
+            )}:${Math.floor(favTrack.duration % 60).toLocaleString("en-US", {
+              minimumIntegerDigits: 2,
+              useGrouping: false,
+            })}`}</p>
           </div>
         </>
       ) : (
