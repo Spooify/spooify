@@ -37,7 +37,7 @@ const HeaderImage = ({
   // }, []);
 
   return (
-    <div>
+    <div className="Artist_container">
       <div
         className="parallax"
         style={{ backgroundImage: `url(${albums[0].photo})` }}

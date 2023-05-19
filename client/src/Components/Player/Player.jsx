@@ -17,7 +17,7 @@ const Player = ({ accessToken, playingTrack, setPlayingTrack }) => {
         callback={state => {if (!state.isPlaying) setPlay(false)}}       
         styles={{
           activeColor: "#fff",
-          bgColor: "#333",
+          bgColor: "#000",
           color: "#fff",
           loaderColor: "#fff",
           sliderColor: "#1cb954",

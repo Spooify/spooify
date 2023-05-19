@@ -8,6 +8,7 @@ const AUTH_URL =
 const Login = () => {
   return (
     <div className="login_body">
+      <img src="../../../public/spotify_white.png" alt="" />
       <h1>Login to Spooify</h1>
       <a href={AUTH_URL}>
         <button className="login-button">Login with Spotify</button>
