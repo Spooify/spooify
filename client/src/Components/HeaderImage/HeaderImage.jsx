@@ -17,6 +17,31 @@ const HeaderImage = ({
   setPlaying,
 }) => {
   console.log(artist);
+
+  // add event listener to change the background color of the control buttons when the scroll is greater than 4veiw height
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = document.querySelector('.Artist_container').scrollTop;
+      const viewHeight = window.innerHeight;
+      const controlButtons = document.querySelector('.control_buttons');
+
+      if (scrollPosition > viewHeight/4) {
+        controlButtons.classList.add('sticky');
+        controlButtons.innerHTML = `<button class="back">&lt;</button><button class="forward">&gt;</button> ${artist.artist_name}`;
+      } else {
+        controlButtons.classList.remove('sticky');
+        controlButtons.innerHTML = `<button class="back">&lt;</button><button class="forward">&gt;</button>`;
+      }
+    };
+
+    const container = document.querySelector('.Artist_container');
+    container.addEventListener('scroll', handleScroll);
+
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   // const [artist, setArtist] = useState()
   // const [albums_data, setAlbums_data] = useState([]);
 
@@ -41,6 +66,10 @@ const HeaderImage = ({
 
   return (
     <div className="Artist_container">
+        <div className="control_buttons">
+          {/* <button className="back">&lt;</button>
+          <button className="forward">&gt;</button> */}
+        </div>
       <div
         className="parallax"
         style={{ backgroundImage: `url(${albums[0].photo})` }}
