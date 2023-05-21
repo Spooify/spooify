@@ -30,7 +30,7 @@ const FansLike = () => {
             .slice(1, maxArtists)
             .map((fansLikeArtist) => (
               <ArtistCard
-                key={fansLikeArtist.id}
+                key={fansLikeArtist.artist_id}
                 artist={fansLikeArtist}
               ></ArtistCard>
             ))

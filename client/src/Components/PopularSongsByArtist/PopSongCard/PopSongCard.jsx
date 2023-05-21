@@ -4,16 +4,26 @@ import playTriangle from "../../../assets/play-triangle.png";
 import favIcon from "../../../assets/fav-icon.png";
 import favIconFavorite from "../../../assets/fav-icon-favorite.png";
 
+
 const PopSongCard = ({
-  artist,
-  album,
   song,
-  playingTrack,
+  trackNum,
   setPlayingTrack,
   playing,
   setPlaying,
+  favoriteSongs,
+  setFavChange
 }) => {
-  const [clicked, setClicked] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  
+  const seconds = Math.floor(song.duration / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const duration = minutes + ":" + (seconds % 60);
+
+  useEffect(() => {
+    if (favoriteSongs.includes(song.track_id)) setIsFavorite(true);
+  }, []);
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -30,28 +40,88 @@ const PopSongCard = ({
     setPlaying(!playing);
   };
 
-  const seconds = Math.floor(song.duration / 1000);
-  const minutes = Math.floor(seconds / 60);
-  const duration = minutes + ":" + (seconds % 60);
+  const handleFavorite = async (e) => {
+    e.stopPropagation();
+    let favorite = !isFavorite;
+    setIsFavorite(!isFavorite);
+    console.log("Favorite Clicked");
+
+    if (favorite) {
+      try {
+        await fetch(`http://localhost:4000/api/playlists/${song.track_id}/`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({ playlist_id: 1 }),
+        });
+      } catch (error) {
+        console.log("error", error);
+      }
+    } else {
+      try {
+        await fetch(`http://localhost:4000/api/playlists/1/${song.track_id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        });
+      } catch (error) {
+        console.log("error", error);
+      }
+    }
+    setFavChange(true);
+  };
 
   return (
-    <div className={styles.song_card} onClick={handlePlay}>
-      <div className={styles["play-button"]}>
-        <img className={styles.image} src={playTriangle}></img>
-      </div>
-      <img className={styles["album_image"]} src={song.photo}></img>
-      <div className={styles.title}>{song.name}</div>
-      <div className={styles["fav-icon"]}>
-        <img
-          className={styles.image}
-          src={clicked ? favIconFavorite : favIcon}
-          onClick={() => {
-            setClicked(!clicked);
-          }}
-        ></img>
-      </div>
-      <div className={styles.duration}>{duration}</div>
-    </div>
+    <>
+      {song ? (
+        <div
+          className={styles.song_card}
+          onClick={handlePlay}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          {" "}
+          {isHovering ? (
+            <div className={styles["play-button"]}>
+              <img className={styles.image} src={playTriangle}></img>
+            </div>
+          ) : (
+            <div className={styles.number}>{trackNum}</div>
+          )}
+          <img className={styles["album_image"]} src={song.photo}></img>
+          <div className={styles.title}>{song.name}</div>
+          <div className={styles["fav-icon"]}>
+            {isHovering ? (
+              <>
+                <img
+                  className={styles["fav-icon"]}
+                  onClick={handleFavorite}
+                  src={isFavorite ? favIconFavorite : favIcon}
+                ></img>
+              </>
+            ) : (
+              <>
+                <img
+                  className={styles["fav-icon-hidden"]}
+                  src={isFavorite ? favIconFavorite : favIcon}
+                ></img>
+                <img
+                  className={styles["play-button-hidden"]}
+                  src={playTriangle}
+                ></img>
+              </>
+            )}
+          </div>
+          <div className={styles.duration}>{duration}</div>
+        </div>
+      ) : (
+        <> </>
+      )}
+    </>
   );
 };
 

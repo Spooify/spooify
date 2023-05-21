@@ -9,8 +9,11 @@ const PopularSongs = ({
   setPlayingTrack,
   playing,
   setPlaying,
+  favoriteSongs,
+  setFavChange
 }) => {
   const [popularTrack, setPopularTrack] = useState([]);
+  let trackNum = 1;
 
   useEffect(() => {
     const url = `http://localhost:4000/api/artist/${artist.artist_id}/tracks`;
@@ -33,13 +36,17 @@ const PopularSongs = ({
       <h2>Popular</h2>
       {popularTrack.map((song) => (
         <PopSongCard
+          key={song.track_id}
           song={song}
           albums={albums}
+          trackNum={trackNum++}
           artist={artist}
           playingTrack={playingTrack}
           setPlayingTrack={setPlayingTrack}
           playing={playing}
           setPlaying={setPlaying}
+          favoriteSongs={favoriteSongs}
+          setFavChange={setFavChange}
         />
       ))}
     </div>

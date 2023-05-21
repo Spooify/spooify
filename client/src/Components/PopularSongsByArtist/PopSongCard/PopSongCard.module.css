@@ -1,131 +1,146 @@
 .song_card {
-    margin-right: 18.5px;
-    display: flex;
-    flex-direction: row;
-    width: 83vw;
-    height: 80px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 8px;
-  }
-  
-  .song_card:hover {
-    margin-right: 18.5px;
-    display: flex;
-    flex-direction: row;
-    width: 83vw;
-    height: 80px;
-    margin-top: 10px;
-    border: none;
-    background-color: rgba(90, 88, 88, 0.505);
-    border-radius: 8px;
-  }
-  
-  .album_image {
-    position: relative;
-    display: inline-block;
-    padding-top: 10px;
-    width: 75px;
-    height: 75px;
-    align-self: center;
-    margin-left: 15px;
-  }
-  
-  .fav-icon {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(91, 144, 91, 0);
-    transition: opacity 300ms ease-in;
-  }
-  
-  .fav-icon-favorite {
-    position: absolute;
-    display: block;
-    width: 40px;
-    height: 40px;
-    right: 5px;
-    top: 10px;
-    z-index: 5;
-    background-color: rgb(17, 97, 17);
-    border-radius: 50%;
-    opacity: 1;
-    transition: opacity 300ms ease-in;
-  }
-  
-  .fav-icon:hover {
-    width: 42px;
-    height: 42px;
-  }
-  
-  .fav-icon-hidden {
-    position: absolute;
-    display: block;
-    width: 40px;
-    height: 40px;
-    right: 5px;
-    top: 10px;
-    background-color: rgba(91, 144, 91, 0);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 300ms ease-out;
-  }
-  
-  .play-button {
-    width: 40px;
-    height: 40px;
-    /* background-color: rgb(91, 144, 91); */
-    border-radius: 50%;
-    opacity: 1;
-    transition: opacity 300ms ease-in;
-  }
-  
-  .play-button-hidden {
-    position: absolute;
-    display: block;
-    width: 40px;
-    height: 40px;
-    right: 5px;
-    bottom: 10px;
-    background-color: rgb(91, 144, 91);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 300ms ease-out;
-  }
-  
-  .play-button:hover {
-    width: 42px;
-    height: 42px;
-  }
-  
-  .track-image {
-    width: 50px;
-    height: 50px;
-    align-self: center;
-    border-radius: 5px;
-  }
-  
-  .number {
-    align-self: center;
-    width: 100px;
-  }
-  
-  .title {
-    text-align: left;
-    padding-left: 15px;
-    width: 650px;
-  }
-  
-  .album {
-    text-align: left;
-    align-self: center;
-    width: 500px;
-  }
-  
-  .duration {
-    width: 100px;
-  }
-  
-  .image {
-    height:25px;
-    width: 25px;
-  }
+  margin-right: 18.5px;
+  display: flex;
+  flex-direction: row;
+  width: 1500px;
+  height: 80px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-left: 15px;
+}
+
+.song_card:hover {
+  margin-right: 18.5px;
+  display: flex;
+  flex-direction: row;
+  width: 1500px;
+  height: 80px;
+  margin-top: 10px;
+  border: none;
+  background-color: rgba(90, 88, 88, 0.505);
+  border-radius: 8px;
+}
+
+.album_image {
+  position: relative;
+  display: inline-block;
+  padding-top: 10px;
+  width: 75px;
+  height: 75px;
+  align-self: center;
+  margin-left: 15px;
+}
+
+.fav-icon {
+  width: 25px;
+  height: 25px;
+  background-color: rgba(91, 144, 91, 0);
+  transition: opacity 300ms ease-in;
+  margin-right: 20px;
+  align-self: center;
+}
+
+.fav-icon-favorite {
+  position: absolute;
+  display: block;
+  width: 25px;
+  height: 25px;
+  right: 5px;
+  top: 10px;
+  z-index: 5;
+  background-color: rgb(17, 97, 17);
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+  margin-right: 20px;
+  align-self: center;
+}
+
+.fav-icon:hover {
+  width: 27px;
+  height: 27px;
+}
+
+.fav-icon-hidden {
+  position: absolute;
+  display: block;
+  width: 25px;
+  height: 25px;
+  right: 5px;
+  top: 10px;
+  background-color: rgba(91, 144, 91, 0);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+  margin-right: 20px;
+  align-self: center;
+}
+
+.play-button {
+  width: 40px;
+  height: 40px;
+  /* background-color: rgb(91, 144, 91); */
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+.play-button-hidden {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 40px;
+  right: 5px;
+  bottom: 10px;
+  background-color: rgb(91, 144, 91);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+
+.play-button:hover {
+  width: 42px;
+  height: 42px;
+}
+
+.track-image {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.number {
+  align-self: center;
+  width: 40px;
+  margin-left: 25px;
+}
+
+.title {
+  text-align: left;
+  padding-left: 15px;
+  width: 650px;
+  margin-top: 25px;
+}
+
+.album {
+  text-align: left;
+  align-self: center;
+  width: 500px;
+}
+
+.duration {
+  width: 100px;
+  align-self: center;
+}
+
+.image {
+  height: 25px;
+  width: 25px;
+}
+
+.album_image {
+  margin-top: -10px;
+}

@@ -7,7 +7,7 @@ INSERT INTO Artists (artist_id, artist_name, followers, image)
 VALUES ('0TnOYISbd1XYRBk9myaseg', 'Pitbull', 9986097, 'https://i.scdn.co/image/ab67616100005174fc9d2abc85b6f4bef77f80ea');
 
 INSERT INTO Artists (artist_id, artist_name, followers, image) 
-VALUES ('0jnsk9HBra6NMjO2oANoPY', 'Flo R artist_ida', 8849956, 'https://i.scdn.co/image/ab67616100005174655ca8f3196953554b479452');
+VALUES ('0jnsk9HBra6NMjO2oANoPY', 'Flo Rida', 8849956, 'https://i.scdn.co/image/ab67616100005174655ca8f3196953554b479452');
 
 INSERT INTO Artists (artist_id, artist_name, followers, image) 
 VALUES ('6MF9fzBmfXghAz953czmBC', 'Taio Cruz', 2230655, 'https://i.scdn.co/image/ab67616100005174153171480a6f22912253b9f1');

@@ -54,6 +54,8 @@ const HeaderImage = ({
           setPlayingTrack={setPlayingTrack}
           playing={playing}
           setPlaying={setPlaying}
+          favoriteSongs={favoriteSongs}
+          setFavChange={setFavChange}
         />
         <Discography albums={albums}></Discography>
         <FansLike />

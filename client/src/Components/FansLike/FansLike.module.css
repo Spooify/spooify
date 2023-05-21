@@ -6,8 +6,9 @@
 
 .title {
   text-align: left;
-  font-size: 19px;
+  font-size: 23px;
   color: white;
+  margin-left: 3px;
 }
 
 .fans-bar {
