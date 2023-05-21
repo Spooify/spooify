@@ -1,13 +1,16 @@
 //--- depencies ---
 import dotenv from "dotenv";
 import express from "express";
-const app = express();
+import SpotifyWebApi from "spotify-web-api-node";
+import bodyParser from "body-parser";
 import cors from "cors";
+const app = express();
 dotenv.config();
 // dotenv.config({ path: "server/.env" });
 app.use(express.json());
 app.use(cors());
-const PORT = 8080;
+app.use(bodyParser.json());
+const PORT = 4000;
 
 import pg from "pg";
 const { Pool } = pg;
@@ -25,6 +28,28 @@ const pool = new Pool({
 
 //--- routes ---
 
+//--- Spotify authentication ---
+app.post("/api/login", (req, res) => {
+  const code = req.body.code;
+  const spotifyWebApi = new SpotifyWebApi({
+    redirectUri: process.env.SPOTIFY_REDIRECT_URI,
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+  });
+  spotifyWebApi
+    .authorizationCodeGrant(code)
+    .then((data) => {
+      res.json({
+        accessToken: data.body.access_token,
+        refreshToken: data.body.refresh_token,
+        expiresIn: data.body.expires_in,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 //--- home route ---
 app.get("/", (req, res) => {
   res.send("Hello World");
@@ -33,16 +58,51 @@ app.get("/", (req, res) => {
 //--- get singular artist ---
 app.get("/api/artists/:id", (req, res) => {
   pool
-    .query("SELECT * FROM artists WHERE id=$1", [req.params.id])
+    .query("SELECT * FROM artists WHERE artist_id=$1", [req.params.id])
     .then((result) => {
       res.send(result.rows);
     });
 });
 
+//--- get all artist ---
+app.get("/api/artists/", (req, res) => {
+  pool.query("SELECT * FROM artists").then((result) => {
+    res.send(result.rows);
+  });
+});
+
 //--- get singular track ---
 app.get("/api/tracks/:id", (req, res) => {
   pool
-    .query("SELECT * FROM tracks WHERE id=$1", [req.params.id])
+    .query(
+      "SELECT * FROM Tracks FULL JOIN Albums ON Tracks.album_id=Albums.album_id FULL JOIN Artists ON Tracks.artist_id=Artists.artist_id WHERE Tracks.track_id=$1",
+      [req.params.id]
+    )
+    .then((result) => {
+      res.send(result.rows);
+    });
+});
+
+//--- get all tracks from artist ---
+app.get("/api/artist/:id/tracks", (req, res) => {
+  console.log(req.params.id);
+  pool
+    .query(
+      "SELECT * FROM Tracks FULL JOIN Albums ON Tracks.album_id=Albums.album_id WHERE Tracks.artist_id=$1",
+      [req.params.id]
+    )
+    .then((result) => {
+      res.send(result.rows);
+    });
+});
+
+//--- get all featuring tracks from artist ---
+app.get("/api/featuring/:id", (req, res) => {
+  pool
+    .query(
+      "SELECT * FROM Tracks FULL JOIN Albums ON Tracks.album_id=Albums.album_id WHERE Tracks.featured_artist=$1",
+      [req.params.id]
+    )
     .then((result) => {
       res.send(result.rows);
     });
@@ -51,7 +111,7 @@ app.get("/api/tracks/:id", (req, res) => {
 //--- get singular album ---
 app.get("/api/albums/:id", (req, res) => {
   pool
-    .query("SELECT * FROM albums WHERE id=$1", [req.params.id])
+    .query("SELECT * FROM albums WHERE album_id=$1", [req.params.id])
     .then((result) => {
       res.send(result.rows);
     });
@@ -60,7 +120,7 @@ app.get("/api/albums/:id", (req, res) => {
 //--- get all albums of singular artist ---
 app.get("/api/artists/:id/albums", (req, res) => {
   pool
-    .query("SELECT * FROM albums WHERE artist=$1", [req.params.id])
+    .query("SELECT * FROM albums WHERE artist_id=$1", [req.params.id])
     .then((result) => {
       res.send(result.rows);
     });
@@ -76,18 +136,18 @@ app.get("/api/playlists", (req, res) => {
 //--- get singular playlist ---
 app.get("/api/playlists/:id", (req, res) => {
   pool
-    .query("SELECT * FROM playlists WHERE id=$1", [req.params.id])
+    .query("SELECT * FROM Playlists WHERE playlist_id=$1", [req.params.id])
     .then((result) => {
       res.send(result.rows);
     });
 });
 
 //--- add track to playlist ---
-app.post("/api/playlists/:id/tracks", (req, res) => {
+app.post("/api/playlists/:track_id", (req, res) => {
   pool
-    .query("INSERT INTO tracks (track_id, playlist_id) VALUES ($1, $2)", [
-      req.body.track_id,
-      req.params.id,
+    .query("INSERT INTO Playlists (track_id, playlist_id) VALUES ($1, $2)", [
+      req.params.track_id,
+      req.body.playlist_id,
     ])
     .then((result) => {
       res.send(result.rows);
@@ -95,11 +155,12 @@ app.post("/api/playlists/:id/tracks", (req, res) => {
 });
 
 //--- delete track from playlist ---
-app.delete("/api/playlists/:id/tracks/:track_id", (req, res) => {
+app.delete("/api/playlists/:playlist_id/:track_id", (req, res) => {
+  console.log("deleting");
   pool
-    .query("DELETE FROM Playlist WHERE track_id=$1 AND playlist_id=$2", [
+    .query("DELETE FROM Playlists WHERE track_id=$1 AND playlist_id=$2", [
       req.params.track_id,
-      req.params.id,
+      req.params.playlist_id,
     ])
     .then((result) => {
       res.send(result.rows);
@@ -114,9 +175,3 @@ app.listen(PORT, (error) => {
     console.log(`server running at ${PORT}`);
   }
 });
-
-// {
-//   "access_token": "BQDYNUEWSgT2OeS4t3XBBd96SYLLCSpGN_HXNMcJg012JwQ9KcyZ79ADrIxxjgRNNq_gK1yH_9IOHWGOIpKEm5iKzy9UI4dug3VinGBZNA1XR5zhO8Ch",
-//   "token_type": "Bearer",
-//   "expires_in": 3600
-// }

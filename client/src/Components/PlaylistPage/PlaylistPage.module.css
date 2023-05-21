@@ -1,0 +1,93 @@
+.playlist-container {
+  padding-left: 15px;
+  background-color: rgb(24, 25, 25);
+  width: 83vw;
+  height: 53vh;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-top: 15px;
+}
+
+.header {
+  display: flex;
+  height: 500px;
+  /* width: 85vw; */
+  background: linear-gradient(
+    45deg,
+    rgb(90, 45, 180) 100%,
+    rgb(106, 46, 184) 0%
+  );
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.header-container {
+  display: flex;
+  align-self: center;
+  color: white;
+}
+
+.image {
+  align-self: center;
+  padding-left: 20px;
+  height: 230px;
+  width: 230px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 230px;
+}
+
+.playlist-title {
+  font-size: 18px;
+  margin-bottom: 0;
+  padding-left: 15px;
+}
+
+.playlist-name {
+  font-size: 90px;
+  font-weight: bolder;
+  padding-left: 15px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.playlist-songs {
+  font-size: 18px;
+  font-weight: bolder;
+  padding-left: 15px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.header-bar {
+  display: flex;
+  text-align: left;
+  font-size: 19px;
+  color: white;
+}
+
+.number {
+  width: 50px;
+  padding-left: 15px;
+}
+
+.title {
+  width: 750px;
+}
+
+.album {
+  width: 550px;
+}
+
+.duration {
+  width: 100px;
+}
+
+.disco-bar {
+  display: flex;
+  flex-direction: row;
+}

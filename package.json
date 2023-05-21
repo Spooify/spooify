@@ -1,18 +1,19 @@
 {
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "nodemon": "^2.0.22",
-    "pg": "^8.10.0"
+    "pg": "^8.10.0",
+    "spotify-web-api-node": "^5.0.2"
   },
   "name": "spooify",
   "description": "How to add Google Auth: https://dev.to/sivaneshs/add-google-login-to-your-react-apps-in-10-mins-4del",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

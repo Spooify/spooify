@@ -1,36 +1,19 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import Discography from "./Components/Discography/Discography";
+import Login from "./Components/Login/Login.jsx";
+import Dashboard from "./Components/Dashboard/Dashboard";
+import "./Components/Featuring/Featuring.jsx";
+
+const code = new URLSearchParams(window.location.search).get("code");
 
 function App() {
   const [count, setCount] = useState(0);
-  const [artist, setArtist] = useState("0TnOYISbd1XYRBk9myaseg");
 
   return (
     <>
-      <Discography artist={artist}></Discography>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {code && <Dashboard code={code} />}
+      {!code && <Login />}
+      <></>
     </>
   );
 }

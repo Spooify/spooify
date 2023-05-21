@@ -1,6 +1,12 @@
+.disco-container {
+  padding-left: 15px;
+  background-color: rgb(24, 25, 25);
+}
+
 .title {
   text-align: left;
-  font-size: 19px;
+  margin-left: 3px;
+  font-size: 23px;
   color: white;
 }
 

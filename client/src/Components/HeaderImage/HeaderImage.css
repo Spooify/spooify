@@ -1,0 +1,84 @@
+.parallax{
+    width: 83vw;
+    height: 42vh;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* border: white 1px solid; */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100vw 135vh;
+    /* background-position: 70% 50%; */
+    background-position: -1059% 125%;
+    /* margin-top: 10px; */
+}
+
+.cards{
+    margin-top: -35px;
+    background-color: rgb(24, 25, 25);
+    width: 83vw;
+    padding-bottom: 15px;
+    /* z-index: 1; */
+    /* top: 45; */
+    /* border: 2px solid red; */
+    /* transform: translateY(-px); */
+    /* add a y scroll bar */
+    
+}
+
+.artist_name{
+    font-size: 70px;
+    font-weight: bolder;
+    color: white;
+    margin-left: 10px;
+    background-color: rgb(24, 25, 25);
+    
+}
+
+
+.Artist_container{
+    overflow-y: scroll;
+    overscroll-behavior-y: hidden;
+    height: 93vh;
+    /* border: 1px solid white; */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+
+.Artist_container .control_buttons{
+    margin-top: -40px;
+    margin-bottom: -2.25vh;
+    /* margin-left: 2vw; */
+    position: sticky;
+    top: 0px;
+    z-index: 5;
+    font-size: xx-large;
+}
+
+.Artist_container .control_buttons.sticky{
+    margin-top: -40px;
+    margin-bottom: -2.25vh;
+    /* margin-left: 2vw; */
+    /* position: sticky; */
+    top: 0px;
+    z-index: 5;
+    background-color: rgb(159, 90, 29) ;
+}
+
+.back, .forward{
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* background-color: #ccc; */
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px 10px 10px 10px;
+
+}

@@ -5,16 +5,15 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=6428b163585e4c2295c4232278eac6f7&client_secret=5289a351467b45d2b65130ad2e640f61
     
 ### get an artist
-GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg
-Authorization: Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptbP3AgEXnyTQbS5OPZjYTUUQ8Rsfxp6zA5syKsUEhO_0n
-
+GET https://api.spotify.com/v1/artists/3fMbdgg4jU18AjLCKBhRSm
+Authorization: Bearer BQCgbo7WqMfr2EUigTlecWLgnXB9WLw5BW9x8GaOJPPo31TNq7GILNumxT3SkcqP-cpht5XP4F02eZv_cFqUVzd73TvZHpBVX-_TWyKqKlT4LHlC1o9G
 ### get artist top tracks
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/top-tracks?market=us
-Authorization: Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptbP3AgEXnyTQbS5OPZjYTUUQ8Rsfxp6zA5syKsUEhO_0n
+Authorization: Bearer BQDGxwkfhDOep_4_D5hHmw8peFOs2soWTivDywSaN7ca8PD-s7U2EyANjLD3IpFfdyq9PE0DCYcF4E47XTj0TdxI96-Byutcbwc8hPSG7-LWtgZ4s5vL
 
 ###get artist albums
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=album%2Csingle&market=us
-Authorization: Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptbP3AgEXnyTQbS5OPZjYTUUQ8Rsfxp6zA5syKsUEhO_0n
+Authorization: Bearer BQA3WGQWli-yg4gqLYf4D4fX7wTTt7fGCLeNwvDp7JrB2BfC4c8MGRIdYEowJCzaGBqOAbaTpYxEERiSXWJKOhz1KwC0Ln1JBoTAugRt_z6aWyXdRXhQ
 
 ### get related artist 
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/related-artist
@@ -22,8 +21,22 @@ Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptb
 
 ###get featured on 
 GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums?include_groups=appears_on&market=us
-Authorization: Bearer BQCJeuhy8ByVhsHgAtDubAloMgCRQ_d2A9q5ZD0Txx0-668SpwPI_82lD0AjO4KSOfaYhoptbP3AgEXnyTQbS5OPZjYTUUQ8Rsfxp6zA5syKsUEhO_0n
+Authorization: Bearer BQDy68QpKOuzlV5NY611NRYYojAPjzWBPwMa4GdnJP9LQW-6qJNRhq-r3EDZv5yg2v0rxIyZRqMZGPaSe5ulwIGDDkLqF3l8slup_mhTzRVavwdH_yOQ
 
 ### test route for server
-GET http://localhost:8080/
+GET http://localhost:4000/
 
+
+### get album
+GET https://api.spotify.com/v1/albums/4RaAjieYFIZRF8uh6GY43r?market=us
+Authorization: Bearer BQDVI0-asnGciPNdme6763JAxyQIinryEaADr172BPonu3sXMoLlBgwo-Y7-DDMdSFcVodk7ZGubo1TRQ7NvCTIN6S0toI5FWSZulKSyvWcp2ROUkvxS
+
+### get track
+GET https://api.spotify.com/v1/tracks/1PCvKFPWnTXAe2oaReVUcr?market=us
+Authorization: Bearer BQA3WGQWli-yg4gqLYf4D4fX7wTTt7fGCLeNwvDp7JrB2BfC4c8MGRIdYEowJCzaGBqOAbaTpYxEERiSXWJKOhz1KwC0Ln1JBoTAugRt_z6aWyXdRXhQ
+
+### Get all tracks from singualar Artist
+GET http://localhost:4000/api/artist/0TnOYISbd1XYRBk9myaseg/tracks
+
+### Get all featuring tracks from artist
+GET http://localhost:4000/api/featuring/0TnOYISbd1XYRBk9myaseg
